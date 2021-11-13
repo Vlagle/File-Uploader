@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>File Uploader Demo</title>
+    <link rel="stylesheet" type="text/css" href="http://dev.sencha.com/deploy/ext-4.0.2/resources/css/ext-all.css" />
+    <script type="text/javascript" src="http://dev.sencha.com/deploy/ext-4.0.2/bootstrap.js"></script>
+    <script type="text/javascript" src="simple.js"></script>
+    <style>
+      .droppable-region {
+        border: 2px solid red;
+        text-align: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin:5px">
+      <div style="width: 600px">
+        <div id='uploader'></div><br><br>
+
+        <p>In most browsers, you can drag and drop files from your
+          computer onto the form above. Enter your name and click
+          "Upload" to watch the progress bar. <br><br>
+
+        <p>Every upload will fail because the server (in this case,
+          GitHub), doesn't accept form submissions. <br><br>
+        
+        <p>I suggest adding large files (> 1 MB) or they tend to
+          upload too quickly and you can't see the progress
+          notification. <br><br>
+
+        <p>If you add too many files, the upload button will scroll off
+          the bottom of the list. Don't do that.<br><br>
+          
+        <p>Internet Explorer (except version 10) does not support drag
+          and drop or progress notifications. You can still add files one
+          at a time with the file picker, but you won't see a nice progress
+          bar as they upload.
+      </div><br><br>
+    </div>
+  </body>
+</html>
