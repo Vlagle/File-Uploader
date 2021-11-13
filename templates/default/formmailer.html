@@ -1,0 +1,53 @@
+{header} <br />
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+      {breadcrumb}</td>
+  </tr>
+</table>
+<br />
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr> 
+    <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+        <tr> 
+          <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tr> 
+                <td width="60%" class="cat_main_headline" valign="top">&nbsp;{formmailer_headline}</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td valign="top"> <form action="{MAINURL}/misc.php" method="post" name="form1" id="form1">
+              <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+              <input name="action" type="hidden" value="send_mail" />
+			  <input name="{mailkind}" type="hidden" value="{mailid}" />
+              <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                <tr> 
+                  <td colspan="2"> <fieldset>
+                    <legend>{formmailer_topic}</legend>
+                    <input name="subject" type="text" class="input" size="150" />
+                    </fieldset></p>
+                    </td>
+                </tr>
+                <tr> 
+                  <td colspan="2" valign="top"> 
+                    <fieldset>
+                    <legend>{formmailer_message}</legend><label>
+                    {formmailer_receipient_will_see_your_mail}<br />
+                    <textarea name="formmessage" cols="41" rows="11" wrap="virtual" class="input" style="width: 100%; background-color: #FFFFFF;"></textarea> 
+                    <label> 
+                    </fieldset></p>
+                    </td>
+                </tr>
+                <tr> 
+                  <td colspan="2" align="center"><input name="Submit" type="submit" class="input" value="  {formmailer_send_email_btn}  " /> 
+                    &nbsp;&nbsp; <input name="Submit2" type="reset" class="input" value="  {formmailer_reset_btn}  " /></td>
+                </tr>
+              </table>
+            </form></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<br />
+{footer} 

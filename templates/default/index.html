@@ -1,0 +1,253 @@
+{header}
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" />
+          {breadcrumb}
+          </td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="{tblwidtha}"> 
+            <!-- Zeile f&uuml;r Statistik, Neue Kommentare etc. -->
+            <IF NAME="parse_new_file_block">
+            <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+              <tr> 
+                <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td> <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tr> 
+                            <td class="left_box_headline"><img src="{GRAFURL}/img_new_files.gif" alt="" width="16" height="16" border="0" align="middle" />&nbsp;<b>{index_new_files}</b></td>
+                          </tr>
+                          <tr> 
+                            <td class="left_box_content"> 
+                              <LOOP NAME="new_files_loop">
+                              <a href="{link}" class="left_box_content"><b>{headline}</b></a><br />
+                              {description}<br />
+                              ({dldate}) 
+                              <hr class="left_box_content" width="95%" size="1" noshade="noshade" /> 
+                              </LOOP NAME="new_files_loop"> 
+							  <IF NAME="parse_new_file_link">                           
+                              &raquo;&nbsp;<a href="{index_url_new_files}" class="left_box_content"><b>{index_all_new_files}</b></a> 
+							  </IF NAME="parse_new_file_link">
+                              </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+            </IF NAME="parse_new_file_block">
+            <IF NAME="parse_last_comment_block">
+            <br /> <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+              <tr> 
+                <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td> <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tr> 
+                            <td class="left_box_headline"><img src="{GRAFURL}/img_comments.gif" alt="{index_new_comments}" width="16" height="16" border="0" align="middle" />&nbsp;<b>{index_new_comments}</b></td>
+                          </tr>
+                          <tr> 
+                            <td class="left_box_content"> 
+                              <LOOP NAME="new_comments_loop">
+                              <a href="{link}" class="left_box_content"><b>{comment_headline}</b></a><br />
+                              {index_file} <a href="{link}">{filename}</a> {comment_poster}<br />
+                              ({comment_date}) 
+                              <hr class="left_box_content" width="95%" size="1" noshade="noshade" /> 
+                              </LOOP NAME="new_comments_loop">
+                            </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+            </IF NAME="parse_last_comment_block">
+            <IF NAME="parse_stats_block">
+            <br /> <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+              <tr> 
+                <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td> <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tr> 
+                            <td class="left_box_headline"><img src="{GRAFURL}/img_stats.gif" alt="{index_statistics}" width="16" height="16" border="0" align="middle" />&nbsp;<b>{index_statistics}</b></td>
+                          </tr>
+                          <tr> 
+                            <td class="left_box_content"> 
+                              {index_number_of_files} {number_of_files}<br />
+                              {index_best_file_overall} {best_file_link}<br />
+                              {index_total_size_of_files} {total_file_size}<br />
+                              {index_number_of_categories} {number_of_categories}<br />
+                              {index_last_file} {last_file}<br />
+                              <hr class="left_box_content" width="95%" size="1" noshade="noshade" /> 
+                              {index_number_of_users} {number_of_registered_users}<br />
+                              {index_last_member}
+                            </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table>
+            </IF NAME="parse_stats_block">            
+            <!-- Zeile Kommentare Ende -->
+          </td>
+          <td valign="top" width="{tblwidthb}"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td colspan="{colspan}"> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">{category_title}</td>
+                      <td width="40%"> 
+                        <IF NAME="parse_top3_block"> 
+                        <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+                          <tr> 
+                            <td> 
+                              <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                                <tr> 
+                                  <td> 
+                                    <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                                      <tr> 
+                                        <td colspan="3" class="pop_box_headline"><img src="{GRAFURL}/img_new_files.gif" alt="" width="16" height="16" border="0" align="middle" />&nbsp;<b>{index_popular_files}</b></td>
+                                      </tr>
+                                      <LOOP NAME="top3_loop">
+                                      <tr> 
+                                        <td class="pop_box_content"> {top3_position} </td>
+                                        <td class="pop_box_content"> <a href="{top3_url}" class="pop_box_content">{top3_filename}</a> </td>
+                                        <td class="pop_box_content"> {top3_hits} </td>
+                                      </tr>
+                                      </LOOP NAME="top3_loop">
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                        </IF NAME="parse_top3_block"> 
+                      </td>
+                    </tr>
+                  </table></td>
+              </tr>
+			  <IF NAME="parse_categories">  
+              <tr> 
+
+                  <!-- Zeile Kategorie 1 -->
+				  <LOOP NAME="category_loop">
+                  {table_start}
+                  <table width="99%" cellspacing="2" cellpadding="2" border="0">
+                    <tr> 
+                      <td class="cat_headline"> <img src="{GRAFURL}/img_category.gif" alt="{category_headline}" width="22" height="22" border="0" align="middle" />&nbsp; 
+                        <a href="{category_url}" class="cat_headline">{category_headline}</a> 
+                        <span class="cat_subcat_info">({number_of_files}/{number_of_subcategories})</span> </td>
+                    </tr>
+                    <tr> 
+                      <td class="cat_content">{category_description}</td>
+                    </tr>
+                  </table>
+                  <br /> 
+                  {table_end}
+				  </LOOP NAME="category_loop">				  
+
+              </tr>
+			</IF NAME="parse_categories">  
+            </table>
+			<IF NAME="parse_files">
+            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="2">
+              <tr> 
+                <td align="left" valign="top" class="page_step">
+                    <IF NAME="parse_page_sorting">
+                    <form action="{MAINURL}/index.php" name="ase" id="ase" method="get">
+                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tr>
+                        <td align="left">{index_sorting}
+                        <input type="hidden" name="subcat" value="{sort_subcat}" />
+                        <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                        <select class="input" name="sorttype">
+                        <option value="hits" {selh}>{index_sort_by_hits}</option>
+                        <option value="title" {selt}>{index_sort_by_title}</option>
+                        <option value="votes" {selv}>{index_sort_by_votes}</option>
+                        <option value="date" {seld}>{index_sort_by_date}</option>
+                        </select>
+                        &nbsp;&nbsp;{index_sort_order}:
+                        <select class="input" name="sortorder">
+                        <option value="A" {sel_auf}>{index_sort_ascending}</option>
+                        <option value="D" {sel_ab}>{index_sort_descending}</option>
+                        </select>
+                        &nbsp;&nbsp;
+                        <input class="input" type="submit" value="{index_sort_now}" />
+                        </td>
+                      </tr>
+                    </table>							
+                    </form>
+                    </IF NAME="parse_page_sorting">
+                </td>
+                <td align="right" valign="top" class="page_step">{pagecount}</td>
+			  </tr>			
+              <tr> 
+                <td colspan="2">
+				<IF NAME="parse_listed_files">
+				<table width="100%" border="0" cellspacing="1" cellpadding="0" bgcolor="{CONTENT_BORDER_COLOR}">
+                    <tr> 
+                      <td class="list_headline">{index_description} <a href="{MAINURL}/index.php?subcat={subcat}&amp;sorttype=title&amp;sortorder=D&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a><a href="{MAINURL}/index.php?subcat={subcat}&sorttype=title&sortorder=A&{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" width="16" height="16" border="0" align="middle" /></a></td>
+                      <td class="list_headline">{index_date} <a href="{MAINURL}/index.php?subcat={subcat}&amp;sorttype=date&amp;sortorder=D&&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a><a href="{MAINURL}/index.php?subcat={subcat}&sorttype=date&sortorder=A&{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" width="16" height="16" border="0" align="middle" /></a></td>
+                      <td class="list_headline"><div align="center">{index_hits} <a href="{MAINURL}/index.php?subcat={subcat}&amp;sorttype=hits&amp;sortorder=D&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a><a href="{MAINURL}/index.php?subcat={subcat}&sorttype=hits&sortorder=A&{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" width="16" height="16" border="0" align="middle" /></a></div></td>
+                      <td class="list_headline"> <div align="center">{index_rating} <a href="{MAINURL}/index.php?subcat={subcat}&amp;sorttype=votes&amp;sortorder=D&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a><a href="{MAINURL}/index.php?subcat={subcat}&sorttype=votes&sortorder=A&{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" width="16" height="16" border="0" align="middle" /></a></div></td>
+					  <td class="list_headline"> <div align="center">{index_filesize}</div></td>
+                    </tr>
+					<LOOP NAME="listed_files_loop">
+                    <tr> 
+                      <td class="{rowcolor}">{headlink} {file_stars} {file_graph}<br />{description}</td>
+                      <td class="{rowcolor}">{file_date}</td>
+                      <td class="{rowcolor}"><div align="center">{file_hits} {file_cool}</div></td>
+                      <td class="{rowcolor}"><div align="center">{file_rating}</div></td>
+					  <td class="{rowcolor}"><div align="center">{file_size}</div></td>
+                    </tr>
+					</LOOP NAME="listed_files_loop">
+                  </table>
+				  </IF NAME="parse_listed_files">
+				  <IF NAME="parse_detailed_files">
+				  <br />
+				  <LOOP NAME="detailed_files_loop">
+                  <table width="100%"  border="0" cellpadding="1" cellspacing="0" bgcolor="{CONTENT_BORDER_COLOR}"> 
+                    <tr> 
+                      <td><table width="100%"  border="0" cellpadding="5" cellspacing="0"> 
+                          <tr> 
+                            <td colspan="3" class="list_headline"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> {headlink} {gfx_update} {gfx_graph} {gfx_cool} {gfx_stars}</td> 
+                          </tr> 
+                          <tr> 
+                            <td valign="top" class="list_light"><div align="center">{file_pic}</div></td> 
+                            <td valign="top" class="list_light"><p>{file_description}</p> 
+                              <p> 
+							  &raquo; {author_information}<br /> 
+                              &raquo; {file_total_time_to_download}<br /> 
+                              &raquo; {file_total_downloads}<br /> 
+                              &raquo; {file_total_rating}</p></td> 
+                            <td valign="top" nowrap="nowrap" class="list_light" width="30%"> 
+                              <div align="center">{direct_download_link}</div> 
+                              <fieldset> 
+                              <legend>{index_options}</legend> 
+							  {options_mirror_link}
+                              &raquo; <a href="{options_rate_url}">{index_rate_file}</a><br /> 
+                              &raquo; <a href="{options_comment_url}">{index_comment}</a> ({options_comment_count})<br /> 
+                              &raquo; {options_deadlink}<br /> 
+                              &raquo; <a href="{options_recommend_url}">{index_mail_a_friend}</a> 
+                              </fieldset></td> 
+                          </tr> 
+                        </table></td> 
+                    </tr> 
+                  </table>
+				  <br />
+				  </LOOP NAME="detailed_files_loop">
+				  </IF NAME="parse_detailed_files">
+				  </td>
+              </tr>
+              <tr> 
+                <td colspan="2" align="right" valign="top" class="page_step">{pagecount}</td>
+			  </tr>						  
+            </table> 
+			</IF NAME="parse_files">
+		  </td>
+        </tr>
+      </table>
+      <br />
+{footer}      

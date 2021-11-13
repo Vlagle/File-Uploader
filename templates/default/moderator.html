@@ -1,0 +1,222 @@
+{header}    
+            <br /> 
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                    <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+                        {breadcrumb}
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> 
+            <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                <tr> 
+                    <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0"> 
+                            <tr> 
+                                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                                        <tr> 
+                                            <td width="100%" valign="top" class="cat_main_headline">{moderator_title_moderator}</td> 
+                                        </tr> 
+                                    </table></td> 
+                            </tr> 
+                            <tr> 
+                                <td> <!-- Zeile Kategorie 1 --> 
+                  <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="{CONTENT_BORDER_COLOR}">
+                      <tr>
+                          <td><table width="100%"  border="0" cellspacing="1" cellpadding="0">
+                              <tr>
+                                  <td width="20%" class="list_headline">{moderator_author}</td>
+                                  <td width="80%" class="list_headline">{moderator_message}</td>
+                              </tr>
+                                <tr> 
+                                    <td valign="top" class="{postcolor}"><p><span class="entry_headline_big">{author}</span>{gender}<br /> 
+                                            <span class="entry_headline_small">{gruppe}</span>{com_avat}</p> 
+                                        <p class="entry_headline_small">{moderator_registered_since} {dabei}<br /> 
+                                            {moderator_location} {herkunft}<br /> 
+                                            {moderator_postings} {count_post}</p></td> 
+                                    <td valign="top" class="{postcolor}"><table width="100%"  border="0" cellspacing="4" cellpadding="4"> 
+                                            <tr> 
+                                                <td class="entry_content">{picon} <strong>{headline}</strong> </td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td class="entry_content">
+                                                {current_comment}
+                                                </td> 
+                                            </tr> 
+                                        </table></td> 
+                                </tr> 
+                                <tr> 
+                                    <td class="{postcolor}"><div align="center" class="entry_headline_small"><img src="{GRAFURL}/img_post.gif" width="14" height="10" align="middle" />{posted_date} </div></td> 
+                                    <td class="{postcolor}"><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                                            <tr> 
+                                                <td width="100%">{mod}&nbsp;&nbsp;{userhp}&nbsp;&nbsp;{usermail}&nbsp;&nbsp;{profile}<span class="entry_content"></span></td> 
+                                                <td width="14"><div align="right"><span class="entry_content"><a href="javascript:self.scrollTo(0,0);"><img src="{GRAFURL}/img_arrow_top.gif" width="14" height="14" border="0" align="middle" /></a></span></div></td> 
+                                            </tr> 
+                                        </table></td> 
+                                </tr>
+                                </table></td> 
+                              </tr> 
+                              </table> 
+                              <br />                                    
+                              <form method="post" action="{MAINURL}/moderator.php" name="alp" id="alp" onSubmit="return validate(this)">
+                              <input type="hidden" name="mod" value="confirmedit" />
+                              <input type="hidden" name="comid" value="{comid}" />
+                              <input type="hidden" name="postid" value="{postid}" />
+                              <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                              <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="{CONTENT_BORDER_COLOR}">
+                                      <tr>
+                                          <td>
+                                          
+                                          <table width="100%"  border="0" cellspacing="1" cellpadding="0">
+                                              
+                                              <tr>
+                                                  <td colspan="2" class="list_headline">{moderator_edit_comment_here}</td>
+                                                  </tr>
+                                              
+                                              <tr>
+                                                  <td width="25%" valign="top" class="list_light"><p><strong>{moderator_username}</strong></p></td>
+                                                  <td width="75%" class="list_light"><input name="poster" type="text" class="input" id="poster" value="{author}" size="100" /></td>
+                                              </tr>
+                                              <tr>
+                                                  <td valign="top" class="list_dark"><p><strong>{moderator_topic}</strong></p></td>
+                                                  <td class="list_dark"><input name="headline" type="text" class="input" id="headline" value="{headline}" size="100" /> 
+                                                <table width="80%"  border="0" cellspacing="0" cellpadding="3">
+                                                  <tr> 
+                                                    <td><fieldset>
+                                                      <legend>{moderator_posticons}</legend>
+                                                      <table width="80%"  border="0" align="center" cellpadding="1" cellspacing="0">
+                                                        <tr> 
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/ausrufezeichen.gif" {ch1} /> 
+                                                            <img src="{SMILIEURL}/posticons/ausrufezeichen.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/biggrin.gif" {ch2} /> 
+                                                            <img src="{SMILIEURL}/posticons/biggrin.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/boese.gif" {ch3} /> 
+                                                            <img src="{SMILIEURL}/posticons/boese.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/cool.gif" {ch4} /> 
+                                                            <img src="{SMILIEURL}/posticons/cool.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/eek.gif" {ch5} /> 
+                                                            <img src="{SMILIEURL}/posticons/eek.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/frage.gif" {ch6} /> 
+                                                            <img src="{SMILIEURL}/posticons/frage.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/frown.gif" {ch7} /> 
+                                                            <img src="{SMILIEURL}/posticons/frown.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/icon1.gif" {ch8} /> 
+                                                            <img src="{SMILIEURL}/posticons/icon1.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                        </tr>
+                                                        <tr> 
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/lampe.gif" {ch9} /> 
+                                                            <img src="{SMILIEURL}/posticons/lampe.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/mad.gif" {ch10} /> 
+                                                            <img src="{SMILIEURL}/posticons/mad.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/sad.gif" {ch11} /> 
+                                                            <img src="{SMILIEURL}/posticons/sad.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/smilie.gif" {ch12} /> 
+                                                            <img src="{SMILIEURL}/posticons/smilie.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/thumb_down.gif" {ch13} /> 
+                                                            <img src="{SMILIEURL}/posticons/thumb_down.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/thumb_up.gif" {ch14} /> 
+                                                            <img src="{SMILIEURL}/posticons/thumb_up.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/wink.gif" {ch15} /> 
+                                                            <img src="{SMILIEURL}/posticons/wink.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                          <td align="center"><input name="posticon" type="radio" value="{SMILIEURL}/posticons/noicon.gif" {ch16} /> 
+                                                            <img src="{SMILIEURL}/posticons/noicon.gif" alt="" width="15" height="15" align="middle" /></td>
+                                                        </tr>
+                                                      </table>
+                                                      </fieldset></td>
+                                                  </tr>
+                                                </table>								  
+                								  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td colspan="2" valign="top" class="list_headline">{moderator_your_message}</td>
+                                                  </tr>
+                                              <tr>
+                                                  <td colspan="2" valign="top" class="list_light" align="center">
+                                                  <IF NAME="user_can_edit_comments">
+                                                  <div id="bbeditor" style="width:95%;">	
+                                                  <table width="100%" border="0" cellpadding="5" cellspacing="0"> 
+                                                  <tr> 
+                                                    <td align="left" valign="middle" colspan="2">
+                                                      <div id="toolbar"><img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'b','')"  src="{GRAFURL}/editor_bold.gif" alt="{moderator_bold}" title="{moderator_bold}" width="21" height="20" border="0" align="middle" /> 
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'i','')"  src="{GRAFURL}/editor_italic.gif" alt="{moderator_italic}" title="{moderator_italic}" width="21" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'u','')"  src="{GRAFURL}/editor_underline.gif" alt="{moderator_underline}" title="{moderator_underline}" width="21" height="20" border="0" align="middle" />
+                                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="namedlinkh(alp,'email')"  src="{GRAFURL}/editor_email.gif" alt="{moderator_email}" title="{moderator_email}" width="21" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="namedlinkh(alp,'url')"  src="{GRAFURL}/editor_createlink.gif" alt="{moderator_url}" title="{moderator_url}" width="21" height="20" border="0" align="middle" />
+                                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'code','')"  src="{GRAFURL}/editor_code.gif" alt="{moderator_code}" title="{moderator_code}" width="21" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'quote','')"  src="{GRAFURL}/editor_quote.gif" alt="{moderator_quote}" title="{moderator_quote}" width="21" height="20" border="0" align="middle" />
+                                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'center','')"  src="{GRAFURL}/editor_justifycenter.gif" alt="{moderator_center}" title="{moderator_center}" width="21" height="20" border="0" align="middle" />
+                                                      </div>
+                                                    </td> 
+                                                  </tr> 
+                                                  <tr> 
+                                                    <td width="80%"><textarea class="message_area" name="comment_message" cols="" rows="10" wrap="virtual" style="width:99%; height:160px; background-color: #FFFFFF; ">{textarea_comment}</textarea>
+                                                    <td>
+                                                    <fieldset><legend>{moderator_click_smilies}</legend>
+                                                        <table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
+                                                        <tr> 
+                                                          <td><div align="center"><img onclick="standard(alp,':D')" alt="" style="cursor: hand;" src="{SMILIEURL}/biggrin.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,';-(')" alt="" style="cursor: hand;"  src="{SMILIEURL}/sly.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':-(')" alt="" style="cursor: hand;"  src="{SMILIEURL}/confused.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':-O')" alt="" style="cursor: hand;"  src="{SMILIEURL}/cry.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                        </tr>
+                                                        <tr> 
+                                                          <td><div align="center"><img onclick="standard(alp,'(?)')" alt="" style="cursor: hand;"  src="{SMILIEURL}/sneaky2.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,'(!)')" alt="" style="cursor: hand;"  src="{SMILIEURL}/notify.gif" width="15" height="21" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':baaa:')" alt="" style="cursor: hand;"  src="{SMILIEURL}/baaa.gif" width="40" height="45" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':stupid:')" alt="" style="cursor: hand;"  src="{SMILIEURL}/withstupid.gif" width="40" height="45" border="0" align="middle" /></div></td>
+                                                        </tr>
+                                                        <tr> 
+                                                          <td><div align="center"><img onclick="standard(alp,'8-)')" alt="" style="cursor: hand;"  src="{SMILIEURL}/music.gif" width="21" height="22" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':O')" alt="" style="cursor: hand;"  src="{SMILIEURL}/wow.gif" width="15" height="15" border="0" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':zzz:')" alt="" style="cursor: hand;"  src="{SMILIEURL}/sleepy.gif" width="15" height="20" border="0" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':xmas:')" alt="" style="cursor: hand;"  src="{SMILIEURL}/xmas.gif" width="21" height="22" border="0" /></div></td>
+                                                        </tr>
+                                                        <tr> 
+                                                          <td><div align="center"><img onclick="standard(alp,';-)')" alt="" style="cursor: hand;"  src="{SMILIEURL}/wink.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':-)')" alt="" style="cursor: hand;"  src="{SMILIEURL}/smile.gif" width="15" height="15" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':!')" alt="" style="cursor: hand;"  src="{SMILIEURL}/thumbs-up.gif" width="23" height="18" border="0" align="middle" /></div></td>
+                                                          <td><div align="center"><img onclick="standard(alp,':inlove:')" alt="" style="cursor: hand;"  src="{SMILIEURL}/inlove.gif" width="16" height="27" border="0" align="middle" /></div></td>
+                                                        </tr>
+                                                      </table>
+                                                      </fieldset>   
+                                                      </td>                                 
+                                                    </td> 
+                                                  </tr> 
+                                                  </table></div>                                                                                    
+                                                <br />
+                                                <div align="left">
+                                                </IF NAME="user_can_edit_comments">
+                                                <IF NAME="user_can_delete_comments"> 
+                                                <fieldset> 
+                                                <legend>{moderator_delete_comment}</legend> 
+                                                <label for="delete_comment"><input name="delete_comment" id="delete_comment" type="checkbox" value="1" /> 
+                                                {moderator_confirm_this_to_delete_comment}</label> 
+                                                </fieldset> 
+                                                </IF NAME="user_can_delete_comments"> 
+                                                <IF NAME="user_can_edit_comments2">
+                                                <fieldset> 
+                                                <legend>{moderator_edit_options}</legend> 
+                                                <label for="add_edited"><input name="add_edited" id="add_edited" checked="checked" type="checkbox" value="1" /> 
+                                                {moderator_add_edited by}</label> 
+                                                </fieldset></div>
+                                                </IF NAME="user_can_edit_comments2">
+                                                </td> 
+                                        </tr> 
+                                    </table></td> 
+                                    </tr> 
+                                </table> 
+				  <div align="center">
+				      <input name="" type="submit" class="input" value=" {moderator_edit_comment_btn} " />
+				      &nbsp;                      
+				      <input name="Reset" type="reset" class="input" value=" {moderator_reset_btn} " />
+				  </div>
+                  </form>
+                  </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>                            
+      <br /> 
+{footer}       

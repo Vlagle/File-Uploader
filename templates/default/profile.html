@@ -1,0 +1,90 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+		  <td valign="top" width="20%"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+              <tr> 
+                <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+                    <tr> 
+                      <td bgcolor="#CCCCCC"> <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tr> 
+                            <td bgcolor="#4665B5" class="left_box_headline"><img src="{GRAFURL}/img_new_files.gif" alt="" width="16" height="16" border="0" align="middle" />&nbsp;<b>{profile_profile_option}</b></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top" class="left_box_content"> <p>&raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_general_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=email&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_email_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=password&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_password_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=avatar&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_avatar_option}</b></a><br />
+                              </p>
+                            </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+            </tr>
+            </table></td>		  
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{profile_profile_general_option}</td>
+                    </tr>
+                  </table>
+				  </td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <!-- Zeile Kategorie 2 -->
+                  <form name="form1" id="form1" method="post" action="{MAINURL}/memberdetails.php">
+                  <input name="action" type="hidden" value="profile_details">
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}"> 
+                  <fieldset><legend>{profile_homepage}</legend>
+                    <label>{profile_enter_url_to_your_homepage}<br />
+                    <input name="form_userhp" type="text" class="input" size="100" value="{form_userhp}" />
+                    </label>
+                    </fieldset>
+					<fieldset><legend>{profile_messenger_settings}</legend><label>{profile_personally_messenger_data}</label><br />
+                    <p>{profile_yahoo}<br />
+                    <input name="form_yim" type="text" class="input" size="100" value="{form_yim}" /></p><p>{profile_icq}<br />
+                    <input name="form_icq" type="text" class="input" size="100" value="{form_icq}" /></p><p>{profile_aim}<br />
+                    <input name="form_aim" type="text" class="input" size="100" value="{form_aim}" /></p></fieldset>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr> 
+                        <td width="49%"><fieldset style="width:100%">
+                          <legend>{profile_location}</legend>
+                          <input name="form_location" type="text" class="input" size="50" value="{form_location}" />
+                          </fieldset>
+                          </td>
+                        <td width="2%">&nbsp;&nbsp;</td>
+                        <td width="49%"><fieldset>
+                          <legend>{profile_gender}</legend>
+                          <select name="gender" class="input">
+                            <option value="0" {selected1}>{profile_na}</option>
+                            <option value="1" {selected3}>{profile_male}</option>
+                            <option value="2" {selected2}>{profile_female}</option>
+                          </select>
+                          </fieldset>
+                          </td>
+                      </tr>
+                    </table>
+					<fieldset><legend>{profile_interests}</legend><label>{profile_give_details_to_your_interests}</label><input name="interests" type="text" class="input" size="100" maxlength="250" value="{interests}" /></fieldset>
+					<table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr>
+                        <td align="center"> 
+                          <input name="" type="submit" class="input" value="  {profile_save_changes}  " />
+                          &nbsp;&nbsp;
+                          <input name="Submit" type="reset" class="input" value="  {profile_reset}  " /></td>
+                      </tr>
+					</table>
+                  </form> </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}    

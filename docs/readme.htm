@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Download-Engine</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+<!--
+Body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #1E77D3;
+	margin-left: 10px;
+}
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #1E77D3;
+	line-height: 30px;
+}
+li {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 20px;
+	padding: 5px;
+}
+p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.important {
+	background-color : #FFCCCC;
+	border : 1px dashed Red;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	margin-top: 8px;
+	margin-bottom: 16px;
+	padding: 6px 6px 6px 32px;
+	line-height: 14px;
+	font-weight : bold;
+	}
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: underline;
+	color: #1E77D3;
+}
+.style1 {
+	font-family: "Courier New", Courier, mono;
+	font-size: 10px;
+}
+-->
+</style>
+</head>
+
+<body leftmargin="0" rightmargin="0" bottommargin="0" topmargin="0">
+<h1> &nbsp;&nbsp;Installationsanleitung Download-Engine V1.4.3</h1>
+<div align="right"><font color="#ff3300">English users see below</font> </div>
+<h2>Systemvoraussetzungen:</h2>
+<ul>
+  <li>Webserver oder ein Webhosting Account (Empfohlen wird Linux/Apache)</li>
+  <li>PHP Version 4.1.0 oder h&ouml;her (neueste PHP Version empfohlen)</li>
+  <li>MySQL Version 3.23.32 oder h&ouml;her</li>
+  <li>PHP Einstellung safe_mode off</li>
+  <li>PHP Einstellung upload_max_filesize &gt; 0</li>
+</ul>
+<h2>Installation:</h2>
+<p>Beachten Sie vor der Installation evtl. Voraussetzungen der einzelnen
+  Installationstypen. Diese finden Sie weiter unten in dieser Datei.</p>
+<ol>
+  <li>Entpacken Sie das Zip-Archiv (z. B. mit WinZip) und &uuml;bertragen Sie
+    alle Dateien in ein geeignetes Verzeichnis auf Ihren Webserver (Achten Sie
+    darauf, dass die Verzeichnisstruktur erhalten bleibt).</li>
+  <li>Setzen die angegebenen Zugriffsrechte f&uuml;r folgende Verzeichnisse:<br />
+    chmod 777 (drwxrwxrwx) : admin/backup<br />
+    chmod 777 (drwxrwxrwx) : avatar<br />
+    chmod 777 (drwxrwxrwx) : files<br />
+    chmod 777 (drwxrwxrwx) : thumbnail<br />
+    chmod 777 (drwxrwxrwx) : templates<br />
+    chmod 777 (drwxrwxrwx) : templates/default<br />
+    <br />
+    Setzen die angegebenen Zugriffsrechte f&uuml;r folgende Dateien:<br />
+    chmod 777 (drwxrwxrwx) : alle Dateien im Verzeichnis &quot;templates/default&quot;<br />
+    chmod 777 (drwxrwxrwx) : include/config.inc.php<br />
+    (evtl. ist auch 666 auf dem Server m&ouml;glich)<br />
+    <br />
+    Dies k&ouml;nnen Sie z.B. mit FTP-Programmen wie CuteFTP oder WS_FTP tun.</li>
+  <li>Legen Sie eine evtl. eine neue Datenbank an (nur falls n&ouml;tig)</li>
+  <li>Rufen Sie die Datei http://www.ihredomain.de/dl_engine/installer.php in
+    Ihrem Browser auf und folgen Sie den Anweisungen auf dem Bildschirm. W&auml;hrend
+    der Installation werden ben&ouml;tigte Einstellungen vorgenommen und die Datenbank
+    vorbereitet.</li>
+  <li>W&auml;hrend der Installation wird die Datei config.inc.php im Unterverzeichnis /include angelegt bzw. &uuml;berschrieben (Bitte beachten Sie Informationen zum Update im folgenden Abschnitt!). Je nach Installationsart m&uuml;ssen Sie evtl. Anpassungen der Datenbanktabellen vornehmen.</li>
+  <li>Nachdem die Installation abgeschlossen ist, l&ouml;schen Sie die Datei installer.php
+    wieder von Ihrem Server (WICHTIG!!!)</li>
+  <li>Die Installation ist nun abgeschlossen. Sie k&ouml;nnen sich nun mit Ihrem
+    bei der Installation gew&auml;hlten Usernamen und Passwort in den Administrationsbereich
+    einloggen und unter &quot;Konfiguration&quot; Die Einstellungen f&uuml;r Ihre
+    Engine vornehmen. <br />
+    Sie finden Ihre Download-Engine unter http://www.ihredomain.de/dl_engine/index.php<br />
+    Das AdminCenter finden Sie unter http://www.ihredomain.de/dl_engine/admin/index.php
+  </li>
+</ol>
+<h2>Installationstypen</h2>
+<ul>
+  <li><strong>Vollinstallation</strong><br />
+    Standardinstallation, es werden alle Tabellen angelegt und Einstellungen vorgenommen</li>
+  <li><strong>Teilinstallation</strong><br />
+    Es ist bereits eine oder mehrere Engines installiert. Bevor Sie diese Installationsart
+    durchf&uuml;hren, m&uuml;ssen Sie die Datei include/config.inc.php anpassen.
+    Sie m&uuml;ssen die
+    Eintr&auml;ge f&uuml;r Usertabelle, Avatartabelle und Gruppentabelle der zuerst
+    installierten
+    Engine &uuml;bernehmen</li>
+  <li><strong>Kombination mit einem Forum</strong> - <em>BETA-Version!!!</em><br />
+  Das Forum muss bereits installiert sein und zus&auml;tzlich darf noch KEINE Engine installiert sein. Ist bereits ein Forum und eine andere Engine installiert, w&auml;hlen Sie bitte die Installationsart TEILINSTALLATION. Als Usertabelle ist dann in der Datei include/config.inc.php die des Forums anzugeben, als Avatar- und Gruppentabelle die der zuerst installierten Engine. Forum und Engine m&uuml;ssen in die gleiche Datenbank installiert werden. Die Kombination wird nur mit einem neu installierten Board und mit einer neu installierten Engine empfohlen! <br />
+  <div class="important">Wichtig: Im Ordner admin/enginelib/driver/ finden Sie die Treiber f&uuml;r alle unterst&uuml;tzten Foren (z. B. Woltlab Burning Board 2 = function.driver.wbb2.php or PHPBB2 = function.driver.phpbb2.php). &Ouml;ffnen Sie die Datei Ihres Forums mit einem Texteditor Ihrer Wahl (z. B. Windows Notepad). In der ersten Zeile (nach dem Kommentar) k&ouml;nnen Sie folgendes finden: <em><span class="style1">$UrlToBoard = &quot;http://192.168.0.100/boards/phpbb2&quot;;</span></em> Geben Sie hier die Url zu Ihrem Forum an, ohne abschliessendes  '/' und evtl. den Tabellenprefix (wurde w&auml;hrend der Installation der Boards angegeben) und/oder Cookieprefix (finden Sie in Ihrer Board-Beschreibung). Speichern Sie die Datei ab und laden Sie die Datei in den Ordner admin/enginelib/driver/ </div>
+  </li>
+  <li><strong>Update zur Vorg&auml;ngerversion</strong><br />
+  Es ist nur notwendig die Tabellen in des Datei include/config.inc.php anzupassen, falls diese ver&auml;ndert wurden. Es muss die Vorg&auml;ngerversion installiert sein. <br />
+  <div class="important">Wichtig: Stellen Sie sicher, dass die MySQL Tabelle mit den Einstellungen dl1_settings heisst (war Standard bei fr&uuml;heren Installationen). Andernfalls k&ouml;nnen die Einstellungen der Vorg&auml;ngerversion nicht &uuml;bernommen werden!</div>
+  </li>
+</ul>
+<h2>Designanpassung</h2>
+<p>Um die Download-Engine in eine vorhandene Seite zu integrieren sollte das mit
+  Hilfe von Kopf- und Fussdateien geschehen. Die Dateien m&uuml;ssen nicht zwingend
+  in das gleiche Verzeichnis und m&uuml;ssen keine *.php Endung haben. Dazu m&uuml;ssen
+  lediglich in der Datei config.inc.php die beiden Pfade zu own_header und own_footer
+  eingegeben werden. N&auml;here Details findesn sich in der Datei selbst bzw.
+  eine ausf&uuml;hrliche Beschreibung in den kostenlos verf&uuml;gbaren Tutorials
+  auf unserer Homepage.</p>
+<h2>Zus&auml;tzliche Informationen</h2>
+<p>Supportinformationen finden Sie unter http://support.alexscriptengine.de</p>
+<p>Diese Engine verwendet zus&auml;tzlich folgende Software:<br />
+  - The DHTML Calendar (http://students.infoiasi.ro/~mishoo) - Lizenz: LGPL<br />
+  - PHPMailer (http://phpmailer.sourceforge.net/) - Lizenz: LGPL<br />
+  - SpawEditor (http://www.solmetra.com) - Lizenz: GPL<br />
+  - Cross Browser Tree Widget 1.17 (http://webfx.eae.net/) - Lizenz: GPL</p>
+<p>Die Engine wurde bisher mit folgender Konfiguration ausf&uuml;hrlich getestet:<br />
+  - Linux SuSe 8.2, Apache 1.3.27, PHP 4.3.1, MySQL 3.23.55<br />
+- Windows IIS 5.1, PHP 4.2.3, MySQL 3.23.56-nt </p>
+<h2>Lizenz</h2>
+<p>Die g&uuml;ltigen Lizenzbedingungen k&ouml;nnen Sie unter http://www.alexscriptengine.de
+  einsehen. </p>
+<p><br />
+</p>
+<h1> &nbsp;&nbsp;Download-Engine V1.4.3 Installation </h1>
+<h2>Requirements:</h2>
+<ul>
+  <li>Server or Webhosting Account (Linux/Apache recommended)</li>
+  <li>PHP Version 4.1.0 or higher (newest PHP Version recommended)</li>
+  <li>MySQL Version 3.23.32 or higher</li>
+  <li>PHP Setting safe_mode off</li>
+  <li>PHP Setting upload_max_filesize &gt; 0</li>
+</ul>
+<h2>Installation:</h2>
+<p>Before you start the installation, please have a look at the different installations
+  you can find below</p>
+<ol>
+  <li>Decompress the .zip archive to a local directory on your system and FTP
+    all the files it contains (being sure to retain the directory structure) to
+    your host.</li>
+  <li>Set permissions for the following directories:<br />
+    chmod 777 (drwxrwxrwx) : admin/backup<br />
+    chmod 777 (drwxrwxrwx) : avatar<br />
+    chmod 777 (drwxrwxrwx) : files<br />
+    chmod 777 (drwxrwxrwx) : thumbnail<br />
+    chmod 777 (drwxrwxrwx) : templates<br />
+    chmod 777 (drwxrwxrwx) : templates/default<br />
+    <br />
+    Set permissions for the following files:<br />
+    chmod 777 (drwxrwxrwx) : alle Dateien im Verzeichnis &quot;templates/default&quot;<br />
+    chmod 777 (drwxrwxrwx) : include/config.inc.php<br />
+    <br />
+    You can do this with FTP programs such as CuteFTP or WS_FTP.</li>
+  <li>Create a new database (if necessary)</li>
+  <li>No you should point your browser to http://www.yourdomain.com/dl_engine/installer.php
+    and follow the setup instructions. .</li>
+  <li>The Install-Script will then attempt to write to the config.php file which will contain the basic configuration data. (Please read the update information at the following paragraph carefully!) Please look at the different installations, on some of them you have to edit this file.</li>
+  <li>You must ensure you remove &quot;installer.php&quot; (IMPORTANT!!!)</li>
+  <li>At this point your basic installation is complete. Please be sure to check
+    the General Configuration details and make any required changes in your AdminCenter.
+    <br />
+    You can find your Download-Engine at http://www.yourdomain.com/dl_engine/index.php<br />
+    And the AdminCenter at http://www.yourdomain.com/dl_engine/admin/index.php
+  </li>
+</ol>
+<h2>Installation Differences</h2>
+<ul>
+  <li><strong>Full Installation</strong><br />
+    Standardinstallation, all tables and settings will be created </li>
+  <li><strong>Partial Installation</strong><br />
+    You have already one or more Engines installed. Please edit the file include/config.inc.php
+    before you use this kind of installation. You have to use the settings of
+    the user-table, group-table and avatar-table of your first installed Engine.</li>
+  <li><strong>Combine the Engine with a discussion board</strong> - <em>BETA-Version!!!</em><br />
+  The discussion board must be installed and this is your first Engine to add. If you have the discussion board and one or more Engines installed you have to choose the PARTIAL INSTALLATION. Then you have to use the user-table of the discussion board and the group- and avatar-table of your first installed Engine in the file include/config.inc.php. Board and Engine must be installed into the same database.   We recommend to use integration only with a new installation of the board and the engine!<br />
+  <div class="important">IMPORTANT: Within the folder admin/enginelib/driver/ you can find a driver for each supported discussion board (e.g. Woltlab Burning Board 2 = function.driver.wbb2.php or PHPBB2 = function.driver.phpbb2.php). Open this file with a text-editor of your choice (e. g. Windows Notepad). At the first line (after the comment-part) you can find a line with the following content: <em><span class="style1">$UrlToBoard = &quot;http://192.168.0.100/boards/phpbb2&quot;;</span></em>Here you have to enter the Url to your discussion board without closing '/' and in some cases the tableprefix (sometimes set during the installation of the board) and/or the cookieprefix (you can find something about this in your board manual). Save the file and upload it to the folder admin/enginelib/driver/ </div>
+  </li>
+  <li><strong>Update the script from the previous version</strong><br />
+  It is not necessary to edit anything if you have installed the previous version of the Engine only otherwise use the table settings of your previous installation. Please make sure you have installed the previous version. <br />
+  <div class="important">IMPORTANT: Make sure that the MySQL table with the settings of your installed version is called dl1_settings (standard in earlier installations). Otherwise it is not possible to transfer your settings!</div>
+  </li>
+</ul>
+<h2>Modifying design</h2>
+<p>If you want to integrate the DownloadEngine into an existing webpage, you can
+  do this with header- and footerfiles. The files haven't to be in the same folder
+  and must not have the ending *.php. You have to give the absolute path of both
+  files (own_header and own_footer) to the variables in the file config.inc.php.
+  More information you find in this file.</p>
+<h2>Additional Informationen</h2>
+<p>Supportinformation can be found at http://support.alexscriptengine.de (Bug-Tracker,
+  German Tutorials, unmoderated User-Board)</p>
+<p>These Engine use the following software:<br />
+  - The DHTML Calendar (http://students.infoiasi.ro/~mishoo) - Licence: LGPL<br />
+  - PHPMailer (http://phpmailer.sourceforge.net/) - Licence: LGPL<br />
+  - SpawEditor (http://www.solmetra.com) - Licence: GPL<br />
+  - Cross Browser Tree Widget 1.17 (http://webfx.eae.net/) - Licence: GPL</p>
+<p>The Engine was tested with these configurations:<br />
+  - Linux SuSe 8.2, Apache 1.3.27, PHP 4.3.1, MySQL 3.23.55<br />
+  - Windows IIS 5.1, PHP 4.2.3, MySQL 3.23.56-nt </p>
+<h2>Licence</h2>
+<p>The valid licence can be found at http://www.alexscriptengine.de<br />
+</p>
+
+</body>
+</html>

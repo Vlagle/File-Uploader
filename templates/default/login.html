@@ -1,0 +1,58 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{login_login}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <!-- Zeile Kategorie 2 -->
+                  <form action="{MAINURL}/index.php" method="post" name="form1" id="form1">
+                  <input type="hidden" name="login" value="join" />
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />                  
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td width="100%" colspan="2"><p> </p>
+                          <fieldset>
+                          <legend>{login_login2}</legend>
+                          <label>{login_use_your_username_password}</label>
+						  <table width="70%" border="0" align="center" cellpadding="5" cellspacing="5">
+                            <tr>
+                              <td><p>{login_username}</p></td>
+                              <td><input name="username" type="text" id="username" size="100" maxlength="15" /></td>
+                            </tr>
+                            <tr>
+                              <td><p>{login_password}</p></td>
+                              <td><input name="userpassword" type="password" id="userpassword" size="100" maxlength="15" /><br /><label>&raquo;&nbsp;{login_click_here_to_remember}</label>
+                              </td>
+                            </tr>
+                          </table>
+
+                          </fieldset></p>
+                          </td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" align="center"><input name="Submit" type="submit" class="input" value="  {login_login_btn}  " />
+                          &nbsp;&nbsp;
+                          <input name="Submit2" type="reset" class="input" value=" {login_reset_btn} " /> 
+                        </td>
+                      </tr>
+                    </table>
+                    </form></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}    

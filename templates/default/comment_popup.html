@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="{CHARSET}"?>
+{DOCTYPE}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{title}</title>
+<meta http-equiv="Content-Type" content="text/html; {CHARSET}" />
+<link href="{STYLESHEET}" rel="stylesheet" type="text/css" />
+<script language="javascript"><!--
+var i=0;
+function resize() {
+  if (navigator.appName == 'Netscape') i=40;
+  if (document.images[0]) window.resizeTo(document.images[0].width +30, document.images[0].height+60-i);
+  self.focus();
+}
+//--></script>
+</head>
+<body bgcolor="{BODY_BACKGROUND_COLOR}" onload="resize();">
+
+<img src="{pic}" border="0" alt="{alt}" title="{alt}" {width} {height} />
+</body>
+</html>

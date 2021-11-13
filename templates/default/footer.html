@@ -1,0 +1,54 @@
+      <IF NAME="parse_quickjump_block">
+      <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{ROW_BOTTOM_BORDER_COLOR}">
+        <tr> 
+          <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td bgcolor="{ROW_BOTTOM_BACKGROUND_COLOR}" class="main_row_bottom"> <table width="100%"  border="0" cellspacing="3" cellpadding="0">
+                    <tr> 
+                        <td align="left" valign="middle" class="info_row_bottom" nowrap="nowrap">
+                        <form action="{MAINURL}/index.php" method="get">
+                        <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                                  {footer_quick_jump}&nbsp;&nbsp; 
+                                  <select class="input" name="cat" onchange="window.location=('{MAINURL}/index.php?{SESS_NAME}={SESS_ID}&amp;jump='+this.options[this.selectedIndex].value)" >
+                                  <option value="0">{footer_please_choose}</option>
+                                  <option value="0">----------------</option>
+                                  {option}
+                                  </select>
+                        </form>
+                        </td>
+                        <td align="right" valign="middle" class="info_row_bottom" nowrap="nowrap">                       					
+                        <form action="{MAINURL}/search.php" method="post" name="form1" id="form1">
+                        <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                        <input name="action" type="hidden" value="result" />                      
+                        <input name="connector" type="hidden" value="or" />
+                        <input name="destination" type="hidden" value="all" />
+                        <input name="limit" type="hidden" value="10" />
+                        <input name="orderby" type="hidden" value="dateA" />
+                            <IF NAME="use_search">
+                                  {footer_quick_search}&nbsp;&nbsp; <input class="quick" name="searchstring" type="text" size="15" /> 
+                                  &nbsp; <input class="input" type="submit" value=" GO " /> 
+                            </IF NAME="use_search">
+                        </form>
+                        </td>                      
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+	  </IF NAME="parse_quickjump_block">	  
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td align="center" class="copyright"> <p>Download-Engine &copy; by <a href="http://www.alexscriptengine.de" class="copyright">AlexScriptEngine.de</a> 
+            </p>
+            <IF NAME="access_admin_center">
+                <p><a href="{admin_url}">{footer_admin_center}</a> </p>
+            </IF NAME="access_admin_center">
+            </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+{query}
+</body>
+</html>

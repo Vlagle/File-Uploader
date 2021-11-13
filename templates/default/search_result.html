@@ -1,0 +1,53 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{search_result_search_result}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tr>
+                      <td bgcolor="{CONTENT_BORDER_COLOR}">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr> 
+                            <td class="list_headline">{search_result_search_result}:</td>
+                          </tr>
+                          <LOOP NAME="search_loop">
+                          <tr> 
+                            <td align="center"> <table width="100%" cellspacing="1" cellpadding="1" border="0" class="{postcolor}">
+						      <tr> 
+						        <td colspan="2"><b>{number}) {headline}</b> {graph} {cool} {stars}</td>
+						      </tr>
+						      <tr> 
+						        <td>&nbsp;&nbsp;</td>
+						        <td>{download_description}</td>
+						      </tr>
+						      <tr> 
+						        <td>&nbsp;&nbsp;</td>
+						        <td><b>{category_titel} | {date} | {rate}</b></td>
+						      </tr>
+                            </table></td>
+                          </tr>
+                          </LOOP NAME="search_loop">
+                        </table></td>
+                    </tr>
+                  </table> </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}              
+

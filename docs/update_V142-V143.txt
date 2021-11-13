@@ -1,0 +1,42 @@
+UPDATE VON V1.4.2 --> V1.4.3
+==================================================
+
+English Users see below.
+
+Es ist nicht notwendig eine neue Installation durchzuführen, es müssen
+lediglich die nachfolgend aufgeführte Dateien ersetzt werden:
+
+- admin/includes/spaw/spaw_control.class.php
+- admin/includes/spaw/spaw_script.js.php
+
+Wenn die Versionsnummer im AdminCenter auf den neuen Stand gebracht werden
+soll, kann dies in der Datei /include/config.inc.php in folgender Zeile durch-
+geführt werden:
+
+define('APP_VERSION', '1.4.2');
+
+ändern in
+
+define('APP_VERSION', '1.4.3');
+
+
+==================================================
+==================================================
+
+UPDATE FROM V1.4.2 --> V1.4.3
+==================================================
+
+It is not necessary to walk through the whole installation process. Copy the following
+files to your existing installation:
+
+- admin/includes/spaw/spaw_control.class.php
+- admin/includes/spaw/spaw_script.js.php
+
+If you would like to update the version number. Please open the file /include/config.inc.php
+and search the following line:
+
+define('APP_VERSION', '1.4.2');
+
+change it to
+
+define('APP_VERSION', '1.4.3');

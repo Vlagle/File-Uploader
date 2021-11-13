@@ -1,0 +1,62 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{title}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+				  <form action="misc.php" method="get" name="jumpmenu"><div align="right">
+				  {misc_more_stats} 
+				  <select name="action" class="input" onChange="document.jumpmenu.submit()">
+						<option value="toplist">{misc_top_downloads_total}</option>
+						<option value="toplist_rating">{misc_top_downloads_by_rating}</option>
+						<option value="toplist_votes" SELECTED>{misc_top_downloads_by_votes}</option>
+						<IF NAME="parse_new_file_list">
+						<option value="new_files">{misc_new_files}</option>
+						</IF NAME="parse_new_file_list">
+						<IF NAME="parse_personally_new_files">
+						<option value="since_last">{misc_new_files_since_your_last_visit}</option>
+						</IF NAME="parse_personally_new_files">
+				  </select>
+				  
+				  &nbsp;
+				  </div></form> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tr>
+                      <td bgcolor="{CONTENT_BORDER_COLOR}">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr> 
+                            <td class="list_headline" colspan="4">{misc_top10_voting_headline}:</td>
+                          </tr>
+                          <LOOP NAME="top10_voting_loop">
+                          <tr class="{postcolor}"> 
+                            <td width="5%" align="center">{no}</td>
+                            <td width="50%" style="padding-top: 3px; padding-bottom: 3px;"><a href="{top10_voting_url}"><b>{top10_voting_filename}</b></a></td>
+                            <td width="25%">{misc_top10_voting_votes}</td>
+                            <td width="20%">{misc_top10_voting_rate}</td>
+                          </tr>
+                          </LOOP NAME="top10_voting_loop">
+                        </table>
+                        </td>
+                    </tr>
+                  </table>                  
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}              
+

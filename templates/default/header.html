@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="{CHARSET}"?>
+{DOCTYPE}
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{DIR}" lang="{LANG}">
+<head>
+<title>{title}</title>
+<meta http-equiv="Content-Type" content="text/html; {CHARSET}" />
+<link href="{STYLESHEET}" rel="stylesheet" type="text/css" />
+{header_add}
+</head>
+<body bgcolor="{BODY_BACKGROUND_COLOR}">
+<table width="{MAINWIDTH}"  border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td> <table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+        <tr> 
+          <td><img src="{GRAFURL}/title_gfx.jpg" alt="{title}" width="750" height="60" /></td>
+        </tr>
+      </table>
+      <table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{ROW_TOP_BORDER_COLOR}">
+        <tr> 
+          <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+              <tr> 
+                <td bgcolor="{ROW_TOP_BACKGROUND_COLOR}" class="main_row_top"> <table width="100%"  border="0" cellspacing="3" cellpadding="0">
+                    <tr> 
+                      <td align="left" class="info_row_top"> {header_welcome}: <b>{USERNAME}</b>&nbsp;&nbsp; 
+                        <IF NAME="registered_member">
+                            <IF NAME="modify_own_profile">
+                                <a href="{change_account_url}">{header_edit_profile}</a>&nbsp;|&nbsp;
+                            </IF NAME="modify_own_profile">
+                        <a href="{logout_url}">{header_log_out}</a>
+                        </IF NAME="registered_member">
+                        <IF NAME="guest_member">
+                            <IF NAME="activate_login">
+                            <a href="{login_url}">{header_log_in}</a>&nbsp;|&nbsp;
+                            </IF NAME="activate_login">
+                            <IF NAME="activate_registering">
+                            <a href="{register_url}">{header_register}</a>
+                            </IF NAME="activate_registering">
+                        </IF NAME="guest_member">
+                      </td>
+                      <td align="right" class="info_row_top">
+                        <IF NAME="use_search"> 
+                            <a href="{search_url}"><img src="{GRAFURL}/img_search.gif" alt="{header_search}" width="16" height="16" border="0" align="middle" />{header_search}</a>&nbsp;|&nbsp;
+                        </IF NAME="use_search">
+                        <IF NAME="use_memberlist">
+                            <a href="{memberlist_url}"><img src="{GRAFURL}/img_memberlist.gif" alt="{header_memberlist}" width="16" height="16" border="0" align="middle" />{header_memberlist}</a>&nbsp;|&nbsp;
+                        </IF NAME="use_memberlist">
+                        <IF NAME="upload_new_file">
+                            <a href="{upload_file_url}"><img src="{GRAFURL}/img_upload_file.gif" alt="{header_upload}" width="16" height="16" border="0" align="middle" />{header_upload}</a>&nbsp;|&nbsp;
+                        </IF NAME="upload_new_file">
+                        <IF NAME="top_stats_file">
+                            <a href="{top_stats_url}"><img src="{GRAFURL}/img_top_files.gif" alt="{header_stats}" width="16" height="16" border="0" align="middle" />{header_stats}</a>
+                        </IF NAME="top_stats_file">						
+                      </td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>

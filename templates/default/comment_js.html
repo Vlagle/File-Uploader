@@ -1,0 +1,200 @@
+<script type="text/javascript">
+<!--
+// Check for Browser & Platform for PC & IE specific bits
+// More details from: http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
+var clientPC = navigator.userAgent.toLowerCase(); // Get client info
+var clientVer = parseInt(navigator.appVersion); // Get browser version
+
+var is_ie = ((clientPC.indexOf("msie") != -1) && (clientPC.indexOf("opera") == -1));
+var is_nav = ((clientPC.indexOf('mozilla')!=-1) && (clientPC.indexOf('spoofer')==-1)
+                && (clientPC.indexOf('compatible') == -1) && (clientPC.indexOf('opera')==-1)
+                && (clientPC.indexOf('webtv')==-1) && (clientPC.indexOf('hotjava')==-1));
+var is_moz = 0;
+
+var is_win = ((clientPC.indexOf("win")!=-1) || (clientPC.indexOf("16bit") != -1));
+var is_mac = (clientPC.indexOf("mac")!=-1);       
+
+if ((clientVer >= 4) && is_ie && is_win) {
+    document.write("<style type=\"text/css\"> .button { background:#ECE9D8; color: #000000; padding: 1px; border: 1px solid #ECE9D8; }</style>");
+} else  {
+    document.write("<style type=\"text/css\"> .button { background:#ECE9D8; color: #000000; padding: 1px; border: 0px; }</style>");
+} 
+
+
+var postmaximum = {max_comment_length};
+function validate(myform) {
+	if (postmaximum != 0) {
+		if (myform.comment_message.value.length > {max_comment_length}) {
+			alert("{comment_js_too_long} "+myform.comment_message.value.length+".");
+			return false; 
+		} else { 
+			return true; 
+		} 
+	} else { 
+		return true; 
+	}
+}
+function checkmesslength(myform) {
+	if (postmaximum != 0) { 
+		message = "{comment_js_maximum}"; 
+	} else { 
+		message = ""; 
+	}
+	
+	alert("{comment_js_long1} "+myform.comment_message.value.length+" {comment_js_long2}."+message);
+}  
+
+function popupWindow(url) {
+  window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,copyhistory=no,width=100,height=100,screenX=150,screenY=150,top=150,left=150')
+}                                  
+                                    
+tag_prompth = "{comment_js1}:";
+link_text_prompth = "{comment_js2}";
+link_url_prompth = "{comment_js3}";
+link_email_prompth = "{comment_js4}";
+
+tags = new Array();
+function getarraysizeh(thearray) {
+    for (i = 0; i < thearray.length; i++) {
+        if ((thearray[i] == "undefined") || (thearray[i] == "") || (thearray[i] == null))
+        return i;
+    }
+    return thearray.length;
+}
+               		
+function arraypush(thearray,value) {
+    thearraysize = getarraysizeh(thearray);
+    thearray[thearraysize] = value;
+}
+               		
+function arraypop(thearray) {
+    thearraysize = getarraysize(thearray);
+    retval = thearray[thearraysize - 1];
+    delete thearray[thearraysize - 1];
+    return retval;
+}
+               		
+function bbcodeh(theform,bbcode,prompttext) {
+    inserttext = prompt(tag_prompth+" ["+bbcode+"]xxx[/"+bbcode+"]",prompttext);
+    if ((inserttext != null) && (inserttext != "")) {
+        theform.comment_message.value += "["+bbcode+"]"+inserttext+"[/"+bbcode+"] ";
+        theform.comment_message.focus();
+    }
+}	
+                    
+function namedlinkh(theform,thetype) {
+    linktext = prompt(link_text_prompth,"");
+    var prompttext;
+    if (thetype == "url") {
+        prompt_text = link_url_prompth;
+        prompt_contents = "http://";
+    } else {
+        prompt_text = link_email_prompth;
+        prompt_contents = "";
+    }
+    linkurl = prompt(prompt_text,prompt_contents);
+    if ((linkurl != null) && (linkurl != "")) {
+        if ((linktext != null) && (linktext != "")) {
+        	theform.comment_message.value += "["+thetype+"="+linkurl+"]"+linktext+"[/"+thetype+"] ";
+        } else {
+        	theform.comment_message.value += "["+thetype+"]"+linkurl+"[/"+thetype+"] ";
+        }
+    }
+    theform.comment_message.focus();
+}	
+
+function smilie(thesmilie) {
+	getActiveText();
+	var AddSmilie = " " + thesmilie + " ";
+	AddText(AddSmilie);
+}
+
+function standard_old(theform,text) {
+	text = ' ' + text + ' ';
+	if (theform.comment_message.createTextRange && theform.comment_message.caretPos) {
+		var caretPos = theform.comment_message.caretPos;
+
+		caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? caretPos.text + text + ' ' : caretPos.text + text;
+		theform.comment_message.focus();
+	} else {
+		var selStart = theform.comment_message.selectionStart;
+		var selEnd = theform.comment_message.selectionEnd;
+
+		mozWrap(theform.comment_message, text, '')
+		theform.comment_message.selectionStart = selStart + text.length;
+		theform.comment_message.selectionEnd = selEnd + text.length;
+	}
+}
+
+function standard(theform,text) {
+    if (theform.comment_message.createTextRange && theform.comment_message.caretPos) {
+        var caretPos = theform.comment_message.caretPos;
+        caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+    } else {
+        theform.comment_message.value+=text
+    }
+    AddTxt = "";
+    theform.comment_message.focus();
+}
+
+// From http://www.massless.org/mozedit/
+function mozWrap(txtarea, open, close) {
+	var selLength = txtarea.textLength;
+	var selStart = txtarea.selectionStart;
+	var selEnd = txtarea.selectionEnd;
+	if (selEnd == 1 || selEnd == 2) 
+		selEnd = selLength;
+
+	var s1 = (txtarea.value).substring(0,selStart);
+	var s2 = (txtarea.value).substring(selStart, selEnd)
+	var s3 = (txtarea.value).substring(selEnd, selLength);
+	txtarea.value = s1 + open + s2 + close + s3;
+	return;
+}
+                    
+function mouseover(el) {
+    el.className = "raised";
+}	
+
+function mouseout(el) {
+        el.className = "button";
+}	
+
+function mousedown(el) {
+    el.className = "pressed";
+}	
+
+function mouseup(el) {
+    el.className = "raised";
+}	                                                            
+//-->
+</script>
+<style type="text/css">
+<!--
+#bbeditor {
+	background: #ECE9D8;
+	padding: 6px;
+    border: 2px groove;
+}
+
+#toolbar {	
+    margin: 0;
+    padding: 0;
+    background: #ECE9D8;
+}
+			
+.raised { 
+    background:#E1E6E8;
+    color: #000000;
+    padding: 0px;
+    border: 1px solid #316AC5;
+}
+			
+.pressed {
+    background:#98B5E2;
+    color: #316AC5;
+    padding: 0px;
+    border: 1px solid #316AC5;
+}                    
+-->
+</style> 

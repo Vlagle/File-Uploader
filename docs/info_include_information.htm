@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>General Include Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+<!--
+Body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #1E77D3;
+	margin-left: 10px;
+}
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #1E77D3;
+	line-height: 30px;
+}
+li {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 20px;
+	padding: 5px;
+}
+p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+-->
+</style>
+</head>
+
+<body leftmargin="0" rightmargin="0" bottommargin="0" topmargin="0">
+<h1> &nbsp;&nbsp;Installation der *info.php Dateien</h1>
+<div align="right"><font color="#ff3300">English users see below</font> </div>
+<h2>Allgemeine Information</h2>
+<p>In jeder Engine gibt es sog. Info-Dateien. Diese erkennen Sie am Wort 'info' 
+  im Dateiname (z. B. dlinfo.php, artinfo.php, newsinfo.php etc.). Diese Scripte 
+  liegen immer im Hauptverzeichnis und erm&ouml;glichen es div. Informationen 
+  die durch die Engines generiert werden auf jeder beliebigen Seite anzuzeigen. 
+  Was Sie daf&uuml;r tun m&uuml;ssen k&ouml;nnen Sie nachfolgend lesen.</p>
+<h2>Datei *info.php bearbeiten</h2>
+<ol>
+  <li>&Ouml;ffnen Sie die Datei *info.php mit einem Texteditor (z. B. WordPad, 
+    Homesite, Dreamweaver)</li>
+  <li>In der ersten Zeile nach dem Kommentarblock finden Sie eine Zeile die angepasst 
+    werden muss. Diese variiert von Script zu Script und sieht in etwa so aus:<br />
+    <br />
+    $path2news = &quot;/srv/www/htdocs/projekte/tpl_news&quot;;</li>
+  <li>Zwischen Anf&uuml;hrungs- und Schlu&szlig;zeichen m&uuml;ssen Sie den absoluten 
+    Pfad zu Ihrer jeweiligen Engine Installation angeben. ACHTUNG, nicht die URL 
+    den Pfad. Wenn Ihnen der Pfad nicht bekannt ist, k&ouml;nnen Sie das Script 
+    path_help.php aus dem docs-Ordner auf den Server laden und im Browser aufrufen 
+    oder einfach Ihren Hoster kontaktieren. </li>
+  <li>Datei *info.php speichern und wieder auf den Server laden</li>
+</ol>
+<h2>Datei *info.php einbinden</h2>
+<ol>
+  <li>&Ouml;ffnen Sie die Seite, in der Sie die Datei anzeigen lassen wollen.</li>
+  <li> F&uuml;gen Sie im Quelltext an die entsprechende Stelle folgendes ein:<br />
+    <p><font face="Courier New, Courier, mono">&lt;?php<br />
+      include('./pfad/zur/datei/newsinfo.php'); <br />
+      ?&gt;</font> </p>
+    In diesem Beispiel wurde die *info-Datei der News-Engine verwendet, dies ist 
+    entsprechend anzupassen. Auch hier bitte wieder den Pfad und nicht die URL 
+    verwenden!</li>
+  <li>Datei abspeichern und per FTP auf den Server laden. WICHTIG, die Datei muss 
+    unbedingt die Endung .php haben. Andernfalls wird das nicht funktionieren</li>
+  <li>Datei im Browser aufrufen. (es wird nur etwas angezeigt, wenn auch bereits 
+    ein Inhalt in die Engine eingegeben wurde)</li>
+</ol>
+<p>Wie Sie das Design der jeweiligen *info-Datei anpassen k&ouml;nnen, erfahren Sie in der Datei style_information.html aus dem docs-Ordner </p>
+<h1>&nbsp;&nbsp;*info.php - Installation</h1>
+<h2>Information</h2>
+<p>In every Engine you can find a *info.php file. Every file include the name 
+  'info' in it's filename (e. g. newsinfo.php, dlinfo.php, artinfo.php). With 
+  these files it is possible to include information provided by the Engines into 
+  your own websites. At the following you can read the installation instructions 
+  to use this feature.</p>
+<h2>Edit file *info.php</h2>
+<ol>
+  <li>Open the file *info.php with a Texteditor (e. g. WordPad, Homesite, Dreamweaver)</li>
+  <li>In the first line after the comment-block you can find the following lines. 
+    These lines looks a little bit different from script to script:<br />
+    <br />
+    $path2news = &quot;/srv/www/htdocs/projekte/tpl_news&quot;;</li>
+  <li>Between the &quot;&quot; you have to insert the full path to the Engine 
+    installation. Please insert the full path and not the URL. If you do not know 
+    the full path, upload the file show_path.php (from the docs folder) to your 
+    server and point your browser on this file or get in contact with your hosting 
+    partner. </li>
+  <li>Save the *info.php file and FTP the file to your server</li>
+</ol>
+<h2>Include file *info.php</h2>
+<ol>
+  <li>Open the page where you want to include the information</li>
+  <li> Add the following lines of code at that place where you want the information:<br />
+    <p><font face="Courier New, Courier, mono">&lt;?php<br />
+      include('./path/to/file/newsinfo.php'); <br />
+      ?&gt;</font> </p>
+    In these example I used the *info-file of the News-Engine, please edit the 
+    lines to the info-file you used. Please use the full path and not URL too!</li>
+  <li>Save the file and FTP it to your webserver. Make sure that you have used 
+    the file extension .php otherwise it won't work.</li>
+  <li>Call the file in your browser</li>
+</ol>
+<p>More information to modify the design of the *info-file can be found in the file style_information.html (from the docs-folder). </p>
+<p>&nbsp;</p>
+</body>
+</html>

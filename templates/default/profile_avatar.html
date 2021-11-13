@@ -1,0 +1,85 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="20%"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="{CONTENT_BORDER_COLOR}">
+              <tr> 
+                <td> <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#4665B5">
+                    <tr> 
+                      <td bgcolor="#CCCCCC"> <table width="100%" cellspacing="0" cellpadding="2" border="0">
+                          <tr> 
+                            <td bgcolor="#4665B5" class="left_box_headline"><img src="{GRAFURL}/img_new_files.gif" alt="" width="16" height="16" border="0" align="middle" />&nbsp;<b>{profile_profile_option}</b></td>
+                          </tr>
+                          <tr> 
+                            <td valign="top" class="left_box_content"> <p>&raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_general_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=email&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_email_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=password&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_password_option}</b></a><br />
+                                &raquo;&nbsp;<a href="{MAINURL}/memberdetails.php?page=avatar&amp;{SESS_NAME}={SESS_ID}" class="left_box_content"><b>{profile_avatar_option}</b></a><br />
+                              </p>
+                            </td>
+                          </tr>
+                        </table></td>
+                    </tr>
+                  </table></td>
+              </tr>
+            </table></td>
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{profile_avatar_profile_avatar}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <!-- Zeile Kategorie 2 -->
+                  <form name="form1" id="form1" method="post" action="{MAINURL}/memberdetails.php">
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />  
+                  <input name="action" type="hidden" value="profile_avatar" />                  
+                    <fieldset>
+                    <legend>{profile_avatar_current_avatar}</legend>
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td>{useravatar}</td>
+                        <td valign="top">{profile_avatar_avatars_are_small_grafics}</td>
+                      </tr>
+                    </table>
+                    </fieldset>
+					<br />
+
+                    <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                      <tr> 
+                        <td width="100%" align="right" valign="top" class="page_step">{pagecount}</td>
+                      </tr>
+                      <tr> 
+                        <td bgcolor="{CONTENT_BORDER_COLOR}" > <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                            <tr> 
+                              <td colspan="4" class="list_headline">{profile_avatar_available_avatars}</td>
+                            </tr>
+                            {avatars}
+                          </table></td>
+                      </tr>
+                      <tr> 
+                        <td width="100%" align="right" valign="top" class="page_step">{pagecount}</td>
+                      </tr>
+                    </table>
+					
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td align="center"> <input name="" type="submit" class="input" value="  {profile_save_changes}  " /> 
+                          &nbsp;&nbsp; <input name="Submit" type="reset" class="input" value="  {profile_reset}  " /></td>
+                      </tr>
+                    </table>
+                  </form></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}         

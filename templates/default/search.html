@@ -1,0 +1,94 @@
+{header}
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}
+          </td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{search_search}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <form action="{MAINURL}/search.php" method="post" name="form1" id="form1">
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                  <input name="action" type="hidden" value="result" />
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td colspan="2">
+                          <fieldset>
+                          <legend>{search_searchphrase}</legend>
+                          <label>{search_define_a_searchphrase}</label>
+                          <input name="searchstring" type="text" class="input" style="width: 100%;" /><br />
+                          <label for="connector_and"> 
+                          <input type="radio" name="connector" id="connector_and" value="and" checked />
+                          {search_contains_all_words}</label>
+                          <br />
+                          <label for="connector_or"> 
+                          <input type="radio" name="connector" id="connector_or" value="or" />
+                          {search_contains_one_word}</label>
+                          <br />
+                          <label>                           
+                          </fieldset></p>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2">
+                          <fieldset>
+                          <legend>{search_search_option}</legend>
+                          <label for="destination_head"> 
+                          <input type="radio" name="destination" id="destination_head" value="head" checked />
+                          {search_search_in_headline}</label>
+                          <br />
+                          <label for="destination_desc"> 
+                          <input type="radio" name="destination" id="destination_desc" value="desc" />
+                          {search_search_in_entry}</label>
+                          <br />
+                          <label for="destination_all"> 
+                          <input type="radio" name="destination" id="destination_all" value="all" />
+                          {search_search_in_headline_entry}</label>
+                          <br />
+                          </fieldset></p>
+                        </td>
+                      </tr>
+                      <tr> 
+                        <td width="50%"> <fieldset>
+                          <legend>{search_number_result}</legend>
+                          <select class="input" name="limit">
+                            <option value="10" SELECTED>{search_10_results}</option>
+                            <option value="20">{search_20_results}</option>
+                            <option value="0">{search_no_limitation}</option>
+                          </select>
+                          </fieldset>
+                          &nbsp;</td>
+                        <td width="50%" valign="top"> <fieldset>
+                          <legend>{search_sorting_results}</legend>
+                          <select class="input" name="orderby">
+                            <option value="dateA">{search_date_ascending}</option>
+                            <option value="dateD">{search_date_descending}</option>
+                            <option value="pnameA">{search_name_ascending}</option>
+                            <option value="pnameD">{search_name_descending}</option>
+                          </select>
+                          </fieldset>
+                          &nbsp;</td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" align="center"><input name="Submit" type="submit" class="input" value="  {search_search_btn}  " /> 
+                          &nbsp;&nbsp; <input name="Submit2" type="reset" class="input" value="  {search_reset_btn}  " /></td>
+                      </tr>
+                    </table>
+                    </form></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}   

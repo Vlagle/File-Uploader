@@ -1,0 +1,78 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{register_end_register}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <!-- Zeile Kategorie 2 -->
+                  <form action="{MAINURL}/addmember.php" method="post">
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" /> 
+                  {hidden_field}
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td width="100%" colspan="2"> <p>{register_end_if_you_want_to_write_comments_you_have_to_register}<br />
+                            <b>{register_end_username}</b><br />
+                            <input name="u_login" type="text" class="input" size="80" maxlength="15" />
+                          </p>
+                          <p> 
+                          <fieldset>
+                          <legend>{register_end_password}</legend>
+                          <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                            <tr> 
+                              <td colspan="2"><label>{register_end_enter_password_for_your_account}</label></td>
+                            </tr>
+                            <tr> 
+                              <td width="50%"> <label>{register_end_password}<br />
+                                <input name="u_passwort" type="password" class="input" style="width: 80%;" maxlength="15" />
+                                </label></td>
+                              <td width="50%"> <label>{register_end_confirm_password}<br />
+                                <input name="u_passwort2" type="password" class="input" style="width: 80%;" maxlength="15" />
+                                </label></td>
+                            </tr>
+                          </table>
+                          </fieldset></p>
+                          <p> 
+                          <fieldset>
+                          <legend>{register_end_email}</legend>
+                          <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                            <tr> 
+                              <td colspan="2"><label>{register_end_please_enter_valid_email}</label></td>
+                            </tr>
+                            <tr> 
+                              <td width="50%"> <label>{register_end_email}<br />
+                                <input name="u_email" type="text" class="input" style="width: 80%;" maxlength="35" />
+                                </label></td>
+                              <td width="50%"> <label>{register_end_confirm_email}<br />
+                                <input name="u_email2" type="text" class="input" style="width: 80%;" maxlength="35" />
+                                </label></td>
+                            </tr>
+                          </table>
+                          </fieldset></p>
+                          </td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" align="center"><input name="Submit" type="submit" class="input" value=" {register_end_end_btn}  " /> 
+                          &nbsp;&nbsp; <input name="Submit2" type="reset" class="input" value=" {register_end_reset_btn} " /> 
+                        </td>
+                      </tr>
+                    </table>
+                  </form></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}  

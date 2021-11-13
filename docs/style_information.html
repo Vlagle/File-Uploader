@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
+<!--
+Body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+}
+h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #1E77D3;
+	margin-left: 10px;
+}
+h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #1E77D3;
+	line-height: 30px;
+}
+li {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 20px;
+	padding: 5px;
+}
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration: underline;
+	color: #1E77D3;
+}
+p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #333333;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.important {
+	background-color : #FFCCCC;
+	border : 1px dashed Red;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size : 10px;
+	margin-top: 8px;
+	margin-bottom: 16px;
+	padding: 6px 6px 6px 32px;
+	line-height: 14px;
+	font-weight : bold;
+	}
+.style1 {font-family: "Courier New", Courier, mono}
+-->
+</style>
+</head>
+
+<body leftmargin="0" rightmargin="0" bottommargin="0" topmargin="0">
+<h1> &nbsp;&nbsp;Allgemeine Informationen</h1>
+<p align="right"><font color="#ff3300">English users see below</font> </p>
+<p>Nachfolgend finden Sie allgemeine Informationen zum Umgang mit den Engines. Gezielte Informationen zur Installation finden Sie in der Datei <a href="readme.htm">readme.html</a>, zudem gibt es eine ausf&uuml;hrliche Beschreibung wie die Engines in eine bestehende Seite eingebunden werden in der Datei <a href="info_include_information.htm">info_include_information.html</a>.</p>
+<h2>Templates </h2>
+<p>Standardm&auml;&szlig;ig enthalten alle Engines ein Templateset, dass das Styling der Engine bestimmt. Das Standard-Templateset findet sich im Ordner /templates/default/. Die einzelnen Dateinamen entsprechen den Namen der jeweiligen Datei in der Url. Wird also z. B. eine Url http://www.meineurl.de/xxx_engine/wall.php?wallid=433 aufgerufen, ist der Dateiname wall.php. Das entsprechende Template im Ordner /templates/default/ heisst also wall.html. Ausnahme gibt es nur f&uuml;r Kommentare, hier hei&szlig;t das Template immer comment.html, zudem gibt es ein Sub-Template Namens comment_loop.html wie auch comment_js.html.</p>
+<p>Innerhalb der Templates werden alle Teile die sp&auml;ter ersetzt werden sollen durch geschweifte Klammern eingeschlossen. Beispiel:</p>
+<p><font face="Courier New, Courier, mono"> &lt;td class=&quot;catrow&quot;&gt;&lt;img src=&quot;{GRAFURL}/img_arrow_right.gif&quot; width=&quot;14&quot; height=&quot;14&quot; border=&quot;0&quot; align=&quot;absmiddle&quot; /&gt;<br />
+{breadcrumb}<br />
+&lt;/td&gt;</font></p>
+<p>Im oben genannten Beispiel wird sowohl der Platzhalter <span class="style1">{GRAFURL}</span> als auch der Platzhalter <span class="style1">{breadcrumb}</span> sp&auml;ter ersetzt. ACHTUNG, die Ersetzungen achten auf Gro&szlig;-/Kleinschreibungen, sind also case sensitive. Alle gro&szlig;geschriebenen Platzhalter sind in allen Templates verf&uuml;gbar. In oben genanntem Beispiel w&auml;re demnach <span class="style1">{GRAFURL}</span> immer verf&uuml;gbar (wird sp&auml;ter durch die Url zu den Grafiken ersetzt). </p>
+<p>Bei einem neuen eigenen Templateset ist nat&uuml;rlich der Name default im Ordnerpfad durch den von Ihnen selbst gew&auml;hlten Namen zu ersetzen.</p>
+<p>Innerhalb der Templates sind kleine Funktionen eingebaut, die es erlauben verschiedene, komplexere Kombinationen vorzunehmen. Diese Funktionen sehen wir HTML-Tags aus. Ebenso wie HTML-Tags gibt es immer einen &ouml;ffnenden und eine schlie&szlig;enden Tag.</p>
+<p>Es finden sich in den Templates sowohl eine IF-Funktion als auch eine LOOP-Funktion.</p>
+<p>Die IF-Funktion stellt den der Funktion folgenden Teil nur dar, wenn die in NAME angegebene Eigenschaft wahr ist (dies wird im PHP-Script festgelegt). Beispiel:</p>
+<p><font face="Courier New, Courier, mono"><strong>&lt;IF NAME=&quot;use_search&quot;&gt;</strong> <br />
+	&lt;a href=&quot;{search_url}&quot;&gt;&lt;img src=&quot;{GRAFURL}/img_search.gif&quot; width=&quot;16&quot; height=&quot;16&quot; border=&quot;0&quot; align=&quot;absmiddle&quot; /&gt;{header_search}&lt;/a&gt;&amp;nbsp;|&amp;nbsp;<br />
+    <strong>&lt;/IF NAME=&quot;use_search&quot;&gt;<br />
+&lt;IF NAME=&quot;use_memberlist&quot;&gt;</strong><br />
+	&lt;a href=&quot;{memberlist_url}&quot;&gt;&lt;img src=&quot;{GRAFURL}/img_memberlist.gif&quot; width=&quot;16&quot; height=&quot;16&quot; border=&quot;0&quot; align=&quot;absmiddle&quot; /&gt;{header_memberlist}&lt;/a&gt; <br />
+    <strong>&lt;/IF NAME=&quot;use_memberlist&quot;&gt;</strong></font></p>
+<p>Die jeweils Fett markierten Bereich stellen die IF-Tags dar. Zu sehen sind die jeweils &ouml;ffnenden und schlie&szlig;enden Tags. Ist also <span class="style1">NAME=&quot;use_search&quot;</span> erf&uuml;llt, wird alles bis zum schliessenden Tag dargestellt, andernfalls wird es nicht an den Browser des Users gesendet, ebenso verh&auml;lt sich bei <span class="style1">NAME=&quot;use_memberlist&quot;</span>. </p>
+<p>Bei der LOOP-Funktion wird alles innerhalb der LOOP-Tags wiederholt. Dies ist z. B. in der Datei memberlist.html der Fall. Also immer dann, wenn z. B. Listen oder &auml;hnliches dargestellt werden m&uuml;ssen. Die Funktion selbst hat ebenso wie die IF-Funktion &ouml;ffnende und schliessende Tags. Bei Anpassungen m&uuml;ssen diese also besonders beachtet werden. </p>
+<h2>Grafiken</h2>
+<p>Alle Grafiken f&uuml;r ein Templateset liegen im Ordner /templates/default/images. Hier finden sich alle Buttons und Grafiken die Non-Verbal sind, also nur Symbole darstellen. Sobald sich Schriften auf den Grafiken befinden (z. B. bei der Picture-Engines die Buttons f&uuml;r Download und Favoriten), finden sich diese im Ordner /lang/german/images bzw. /lang/sprache/images. Diese werden f&uuml;r ein Templateset nicht gesondert gespeichert sondern f&uuml;r alle Templatesets verwendet.</p>
+<h2>Farben, Schriftarten und Schriftgr&ouml;ssen</h2>
+<p>Diese k&ouml;nnen im AdminCenter unter &quot;Styles&quot; bearbeitet werden. Unterhalb der Farben und Einstellungen finden Sie ein Textfeld in dem das komplette Stylesheet abgebildet ist. Die Einstellbaren Farben sind nur die Hauptfarben, sollten Sie alle Farben der Engine anpassen wollen, m&uuml;ssen Sie da im Textfeld abgebildete Stylesheet ver&auml;ndern. Nach einem Klick auf Speichern, werden alle Farben und das Stylesheet gesichert und zudem die Datei style.css im Ordner /templates/default &uuml;berschrieben. Wurden hier also manuelle &Auml;nderungen vorgenommen gehen diese verloren! Sollten Sei ein komplett eigenes Stylesheet entwerfen und wollen Sie dieses speichern, ist der beste Weg dies in das Textfeld zu kopieren und die dar&uuml;berstehenden Farben anzupassen. Nach einem Klick auf Speichern wird das neue Stylesheet gespeichert.</p>
+<p>Wichtig ist, dass eine Stylesheet Datei immer den Namens styles.css haben muss, auch wenn ein neues Templateset angelegt wird. </p>
+<h2>Style der *info-Datei anpassen</h2>
+<p>Eine *info-Datei (zus&auml;tzliche Informationen zur *info-Datei stehen in der info_include_information.html Datei) besitzt keine Templates wie oben beschrieben. Das Design muss direkt in der Datei angepasst werden. (Ausnahme: Article-Engine, hier wird das Design im AdminCenter in den jeweiligen Containern festgelegt) </p>
+<p>&Ouml;ffnen Sie die gew&uuml;nschte *info-Datei (z. B. newsinfo.php, picinfo.php, dlinfo.php etc.) in einem Texteditor wie Notepad, Homesite oder Dreamweaver. Nachdem alles eingerichtet wurde, kann das Design angepasst werden. Dazu finden sich zu beginn der Datei eine oder mehrere Funktionen diese Funktionen erkennt man einfach an der Markierung der Bl&ouml;cke. In der newsinfo.php (der *info-Datei der News-Engine) existiert z. B. folgende Funktione:</p>
+<p class="style1">function parseNewsHead($news) {<br />
+    return &lt;&lt;&lt;EOT<br />
+    <strong>&amp;nbsp;&amp;nbsp;&lt;b&gt;&amp;raquo;&amp;nbsp;&lt;a href=&quot;{$news[headline_link]}&quot;&gt;{$news[headline_title]}&lt;/a&gt;&lt;/b&gt; &lt;span&gt;{$news[headline_date]}&lt;/span&gt;&lt;br /&gt;</strong><br />
+    EOT;<br />
+    } </p>
+<p>Alles was zwischen <span class="style1">&lt;&lt;&lt;EOT</span> und <span class="style1">EOT;</span> steht ist reiner HTML-Code und kann angepasst werden. Dort wo sp&auml;ter (wie in diesem Beispiel) die &Uuml;berschriften der News stehen, sind sog. Platzhalter wie in den Templates zu finden. Ebenfalls wie in den Templates sind diese in geschweifte Klammern gestellt und m&uuml;ssen nat&uuml;rlich nach der Anpassung wieder vorhanden sein, da andernfalls keine Ausgabe erfolgen kann. </p>
+<h1>General Information </h1>
+<p>&nbsp;</p>
+</body>
+</html>

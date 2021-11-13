@@ -1,0 +1,65 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{memberlist_memberlist_overview}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <table width="100%" border="0" cellspacing="2" cellpadding="0">
+                    <tr>
+                      <td align="right" class="page_step">{pagecount}</td>
+                    </tr>
+                    <tr>
+                      <td bgcolor="{CONTENT_BORDER_COLOR}">
+                      <table width="100%" border="0" cellspacing="1" cellpadding="0">
+                          <tr> 
+                            <td class="list_headline">
+                                {memberlist_username} 
+                                <a href="{MAINURL}/memberlist.php?orderby=nameA&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                                <a href="{MAINURL}/memberlist.php?orderby=nameD&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                            </td>
+                            <td class="list_headline">
+                                {memberlist_rank} 
+                                <a href="{MAINURL}/memberlist.php?orderby=rankA&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                                <a href="{MAINURL}/memberlist.php?orderby=rankD&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                            </td>
+                            <td class="list_headline">
+                                {memberlist_member_since} 
+                                <a href="{MAINURL}/memberlist.php?orderby=sinceA&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_up.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                                <a href="{MAINURL}/memberlist.php?orderby=sinceD&amp;{SESS_NAME}={SESS_ID}"><img src="{GRAFURL}/img_arrow_down.gif" alt="" width="16" height="16" border="0" align="middle" /></a>
+                            </td>
+                            <td align="center" class="list_headline">{memberlist_locked}</td>
+                          </tr>
+                          <LOOP NAME="member_loop">
+                          <tr> 
+                            <td class="{postcolor}"><a href="{MAINURL}/memberlist.php?action=userdetail&amp;nameid={nameid}&amp;{SESS_NAME}={SESS_ID}"><b>{username}</b></a></td>
+                            <td class="{postcolor}">{rank}</td>
+                            <td class="{postcolor}">{active}</td>
+                            <td align="center" class="{postcolor}">{block}</td>
+                          </tr>
+                          </LOOP NAME="member_loop">
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td align="right" class="page_step">{pagecount}</td>
+                    </tr>										
+                  </table> </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}              
+

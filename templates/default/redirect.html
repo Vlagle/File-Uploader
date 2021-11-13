@@ -1,0 +1,70 @@
+{header} <br />
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+      {breadcrumb}</td>
+  </tr>
+</table>
+<br />
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+  <tr> 
+    <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+        <tr> 
+          <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tr> 
+                <td width="60%" class="cat_main_headline" valign="top">&nbsp;{title}</td>
+              </tr>
+            </table></td>
+        </tr>
+        <tr> 
+          <td valign="top"> 
+            <script language="JavaScript">
+            
+            //"Accept terms" form submission- By Dynamic Drive
+            //For full source code and more DHTML scripts, visit http://www.dynamicdrive.com
+            //This credit MUST stay intact for use
+            
+            var checkobj
+            
+            function agreesubmit(el){
+                checkobj=el
+                if (document.all||document.getElementById){
+                    for (i=0;i<checkobj.form.length;i++){  //hunt down submit button
+                        var tempobj=checkobj.form.elements[i]
+                        if(tempobj.type.toLowerCase()=="submit")
+                        tempobj.disabled=!checkobj.checked
+                    }
+                }
+            }
+            
+            function defaultagree(el){
+                if (!document.all&&!document.getElementById){
+                    if (window.checkobj&&checkobj.checked)
+                    return true
+                    else{
+                        alert("{register_please_read_terms_to_submit}")
+                        return false
+                    }
+                }
+            }
+            
+            </script>          
+          {licence_text}
+          <form action="{MAINURL}/redirect.php" method="get" onSubmit="return defaultagree(this)" name="agreeform">
+          <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />  
+          <input type="hidden" name="{base_name}" value="{file_id}" />
+          <input type="hidden" name="licence_accepted" value="1" />                        
+          <label for="accept"><input id="accept" name="accept" type="checkbox" value="yes" onClick="agreesubmit(this)" />
+          <b>{redirect_yes_i_have_read_licence}</b></label>  
+          <p align="center"><input class="input" name="submit" type="submit" value="  {redirect_btn_download}  " disabled /></p> 
+          </form>
+          <script language="JavaScript">
+          document.forms.agreeform.accept.checked=false
+          </script>                      
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+<br />
+{footer} 

@@ -1,0 +1,85 @@
+{header}   
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb}</td>
+        </tr>
+      </table> 
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0">
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{register_register}</td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr> 
+                <td valign="top"> 
+                  <!-- Zeile Kategorie 2 -->
+                <script type="text/javascript">
+                
+                //"Accept terms" form submission- By Dynamic Drive
+                //For full source code and more DHTML scripts, visit http://www.dynamicdrive.com
+                //This credit MUST stay intact for use
+                
+                var checkobj
+                
+                function agreesubmit(el){
+                    checkobj=el
+                    if (document.all||document.getElementById){
+                        for (i=0;i<checkobj.form.length;i++){  //hunt down submit button
+                            var tempobj=checkobj.form.elements[i]
+                            if(tempobj.type.toLowerCase()=="submit")
+                            tempobj.disabled=!checkobj.checked
+                        }
+                    }
+                }
+                
+                function defaultagree(el){
+                    if (!document.all&&!document.getElementById){
+                        if (window.checkobj&&checkobj.checked)
+                        return true
+                        else{
+                            alert("{register_please_read_terms_to_submit}")
+                            return false
+                        }
+                    }
+                }
+                
+                </script>                  
+
+                  <table cellspacing="0" cellpadding="0" border="0">
+                    <table width="100%" border="0" cellspacing="2" cellpadding="2">
+                      <tr> 
+                        <td width="100%" colspan="2"><p> </p>
+                          <fieldset>
+                          <legend>{register_rules}</legend>
+                          <label>{register_to_register_you_have_to_accept_rules}</label>
+                          <br />
+                          <textarea name="rules" cols="" rows="" wrap="virtual" class="input" id="rules" style="height: 150px; width: 100%">{register_text}</textarea><br />
+                          <form action="{MAINURL}/addmember.php" method="post" onSubmit="return defaultagree(this)" name="agreeform">
+                          <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}">  
+                          <input type="hidden" name="action" value="addmember">                          
+                          <label for="accept"><input name="accept" id="accept" type="checkbox" value="yes" onClick="agreesubmit(this)" />
+                          <b>{register_yes_i_accept_the_rules}</b></label>
+                          </fieldset></p>
+                          </td>
+                      </tr>
+                      <tr> 
+                        <td colspan="2" align="center"><input name="Submit" type="submit" class="input" value="  {register_register_btn}  " disabled>
+                        </td>
+                      </tr>
+                    </table>                    
+                    </form>
+                    <script type="text/javascript">
+						document.forms.agreeform.accept.checked=false
+					</script>                     
+                    </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+      <br /> 
+{footer}    

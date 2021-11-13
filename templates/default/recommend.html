@@ -1,0 +1,66 @@
+{header}    
+            <br /><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                    <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+                    {breadcrumb}
+                    </td> 
+                </tr> 
+            </table> 
+            <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                <tr> 
+                    <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0"> 
+                            <tr> 
+                                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                                        <tr> 
+                                            <td width="60%" class="cat_main_headline" valign="top">{title}</td> 
+                                        </tr> 
+                                    </table></td> 
+                            </tr> 
+                            <tr> 
+                                <td valign="top"> <!-- Zeile Kategorie 2 --> 
+                                    <form action="{MAINURL}/recommend.php" method="get"> 
+                                        <input name="send" type="hidden" value="mail" /> 
+                                        <input name="{SESS_NAME}" type="hidden" value="{SESS_ID}" /> 
+                                        <input name="dlid" type="hidden" value="{dlid}" /> 
+                                        <input name="dlname" type="hidden" value="{dlname}" /> 
+                                        <input name="referer" type="hidden" value="{http_referer}" /> 
+                                        <table width="90%" border="0"> 
+                                            <tr> 
+                                                <td><fieldset> 
+                                                    <legend class="list_desc">{recommend_recipient}</legend> 
+                                                    <table width="100%" cellspacing="15" cellpadding="2" border="0"> 
+                                                        <tr> 
+                                                            <td width="50%" align="left"><label>{recommend_friends_name}<br /><input name="friendname" type="text" class="input" style="width: 80%;" /></label></td> 
+                                                            <td width="50%" align="left"><label>{recommend_friends_email}<br /><input name="friendmail" type="text" class="input" style="width: 80%;" /></label></td> 
+                                                        </tr> 
+                                                    </table> 
+                                                    </fieldset></td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td><fieldset> 
+                                                    <legend class="list_desc">{recommend_sender}</legend> 
+                                                    <table width="100%" cellspacing="15" cellpadding="2" border="0"> 
+                                                        <tr> 
+                                                            <td width="50%" align="left"><label>{recommend_your_name}<br /><input name="uname" type="text" class="input" style="width: 80%;" /></label></td> 
+                                                            <td width="50%" align="left"><label>{recommend_your_mail}<br /><input name="umail" type="text" class="input" style="width: 80%;" /></label></td> 
+                                                        </tr> 
+                                                        <tr> 
+                                                            <td colspan="4" class="list"><label>{recommend_comment}<br /> 
+                                                                <textarea name="mailcomment" cols="90" rows="5" wrap="virtual" class="input" style="width: 100%;">{mailcomment}</textarea></label></td> 
+                                                        </tr> 
+                                                    </table> 
+                                                    </fieldset></td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td align="center">
+                                                <input class="input" type="submit" value=" {recommend_send_btn} " /> 
+                                                &nbsp;<input class="input" type="reset" value=" {recommend_reset_btn} " /></td> 
+                                            </tr> 
+                                        </table> 
+                                    </form></td> 
+                            </tr> 
+                        </table></td> 
+                </tr> 
+            </table> 
+      <br /> 
+{footer}

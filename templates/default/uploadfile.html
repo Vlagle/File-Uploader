@@ -1,0 +1,267 @@
+{header}    
+      <br /> <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr> 
+          <td class="catrow"><img src="{GRAFURL}/img_arrow_right.gif" alt="" width="14" height="14" border="0" align="middle" /> 
+            {breadcrumb} 
+          </td>
+        </tr>
+      </table>
+      <br /> <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+        <tr> 
+          <td valign="top" width="80%"> <table width="100%" cellspacing="2" cellpadding="2" border="0"> 
+              <tr> 
+                <td> <table width="100%" cellspacing="0" cellpadding="0" border="0"> 
+                    <tr> 
+                      <td width="60%" class="cat_main_headline" valign="top">&nbsp;{uploadfile_register_new_file} </td> 
+                    </tr> 
+                  </table></td> 
+              </tr> 
+              <tr> 
+                <td align="center" valign="top"> <!-- Zeile Kategorie 2 --> 
+		        <script language="javascript">
+		    	   <!--
+		    	   function validate(theform) {
+		    	    if (theform.upl_file.value!="" && theform.upl_file2.value!="") {
+		    	     alert("{uploadfile_not_possible_link_file}");
+		    	     return false;
+		    	    } else {						
+		    		    if (theform.upl_file.value=="" && theform.upl_file2.value=="") {
+		    		     	alert("{uploadfile_choose_file_or_link}");
+		    		     	return false;
+		    	    	} else { 
+		    				return true;
+		    			}
+		    		}
+		    	   }
+		    	   //-->
+		    	  </script>		
+                    <style type="text/css">
+                    <!--
+                    #bbeditor {
+                    	background: #ECE9D8;
+                    	padding: 6px;
+                        border: 2px groove;
+                    }
+                    
+                    #toolbar {	
+                        margin: 0;
+                        padding: 0;
+                        background: #ECE9D8;
+                    }
+                    			
+                    .raised { 
+                        background:#E1E6E8;
+                        color: #000000;
+                        padding: 0px;
+                        border: 1px solid #316AC5;
+                    }
+                    			
+                    .pressed {
+                        background:#98B5E2;
+                        color: #316AC5;
+                        padding: 0px;
+                        border: 1px solid #316AC5;
+                    }                    
+                    -->
+                    </style>                                  
+               		<script language="JavaScript" type="text/javascript">
+               		<!--  
+                    // Check for Browser & Platform for PC & IE specific bits
+                    // More details from: http://www.mozilla.org/docs/web-developer/sniffer/browser_type.html
+                    var clientPC = navigator.userAgent.toLowerCase(); // Get client info
+                    var clientVer = parseInt(navigator.appVersion); // Get browser version
+                    
+                    var is_ie = ((clientPC.indexOf("msie") != -1) && (clientPC.indexOf("opera") == -1));
+                    var is_nav = ((clientPC.indexOf('mozilla')!=-1) && (clientPC.indexOf('spoofer')==-1)
+                                    && (clientPC.indexOf('compatible') == -1) && (clientPC.indexOf('opera')==-1)
+                                    && (clientPC.indexOf('webtv')==-1) && (clientPC.indexOf('hotjava')==-1));
+                    var is_moz = 0;
+                    
+                    var is_win = ((clientPC.indexOf("win")!=-1) || (clientPC.indexOf("16bit") != -1));
+                    var is_mac = (clientPC.indexOf("mac")!=-1);       
+                    
+                	if ((clientVer >= 4) && is_ie && is_win) {
+                        document.write("<style type=\"text/css\"> .button { background:#ECE9D8; color: #000000; padding: 1px; border: 1px solid #ECE9D8; }</style>");
+                	} else  {
+                        document.write("<style type=\"text/css\"> .button { background:#ECE9D8; color: #000000; padding: 1px; border: 0px; }</style>");
+                    }                     
+                    
+                                    
+               		tag_prompth = "{uploadfile_js1}:";
+               
+               		link_text_prompth = "{uploadfile_js2}";
+               		link_url_prompth = "{uploadfile_js3}";
+               		link_email_prompth = "{uploadfile_js4}";
+               		
+               		tags = new Array();
+               		function getarraysizeh(thearray) {
+               			for (i = 0; i < thearray.length; i++) {
+               				if ((thearray[i] == "undefined") || (thearray[i] == "") || (thearray[i] == null))
+               					return i;
+               				}
+               			return thearray.length;
+               		}
+               		
+               		function arraypush(thearray,value) {
+               			thearraysize = getarraysizeh(thearray);
+               			thearray[thearraysize] = value;
+               		}
+               		
+               		function arraypop(thearray) {
+               			thearraysize = getarraysize(thearray);
+               			retval = thearray[thearraysize - 1];
+               			delete thearray[thearraysize - 1];
+               			return retval;
+               		}
+               		
+               		function bbcodeh(theform,bbcode,prompttext) {
+               			inserttext = prompt(tag_prompth+" ["+bbcode+"]xxx[/"+bbcode+"]",prompttext);
+               			if ((inserttext != null) && (inserttext != "")) {
+               				theform.comment_message.value += "["+bbcode+"]"+inserttext+"[/"+bbcode+"] ";
+               				theform.comment_message.focus();
+               			}
+               		}	
+                    
+               		function namedlinkh(theform,thetype) {
+               			linktext = prompt(link_text_prompth,"");
+               			var prompttext;
+               				if (thetype == "url") {
+               					prompt_text = link_url_prompth;
+               					prompt_contents = "http://";
+               				} else {
+               					prompt_text = link_email_prompth;
+               					prompt_contents = "";
+               				}
+               			linkurl = prompt(prompt_text,prompt_contents);
+               				if ((linkurl != null) && (linkurl != "")) {
+               					if ((linktext != null) && (linktext != "")) {
+               						theform.comment_message.value += "["+thetype+"="+linkurl+"]"+linktext+"[/"+thetype+"] ";
+               					} else {
+               						theform.comment_message.value += "["+thetype+"]"+linkurl+"[/"+thetype+"] ";
+               					}
+               				}
+               			theform.comment_message.focus();
+               		}	
+                    
+                    function mouseover(el) {
+                        el.className = "raised";
+                    }	
+                    
+                    function mouseout(el) {
+                            el.className = "button";
+                    }	
+                    
+                    function mousedown(el) {
+                        el.className = "pressed";
+                    }	
+                    
+                    function mouseup(el) {
+                        el.className = "raised";
+                    }	                                                            
+               		
+               		//-->
+               		</script> 		
+                  <form action="{MAINURL}/uploadfile.php" name="alp" method="POST" enctype="multipart/form-data" onSubmit="return validate(this)"> 
+                  <input type="hidden" name="step" value="upload" />
+                  <input type="hidden" name="{SESS_NAME}" value="{SESS_ID}" />
+                  <input type="hidden" name="MAX_FILE_SIZE" value="{max_file_size}" />				  
+                    <table width="100%" border="0" cellspacing="2" cellpadding="0"> 
+                      <tr> 
+                        <td bgcolor="{CONTENT_BORDER_COLOR}"><table width="100%" border="0" cellspacing="1" cellpadding="0"> 
+                            <tr> 
+                              <td colspan="2" class="list_headline">{uploadfile_authors_detail}</td> 
+                            </tr> 
+                            <tr> 
+                              <td class="list_dark"><p>{uploadfile_authors_name}</p></td> 
+                              <td valign="middle" class="list_dark">{input_user_name}</td> 
+                            </tr> 
+                            <tr> 
+                              <td valign="top" class="list_light"><p>{uploadfile_email}</p></td> 
+                              <td valign="middle" class="list_light">{input_user_email}</td> 
+                            </tr> 
+                            <tr> 
+                              <td valign="top" class="list_dark"><p>{uploadfile_homepage}</p></td> 
+                              <td valign="middle" class="list_dark">{input_user_homepage}</td> 
+                            </tr> 
+                            <tr> 
+                              <td colspan="2" valign="top" class="list_headline">{uploadfile_details_to_your_file}</td> 
+                            </tr> 
+                            <tr> 
+                              <td valign="middle" class="list_dark"><p>{uploadfile_name_of_your_file}</p></td> 
+                              <td valign="middle" class="list_dark"><input name="dltitle" type="text" class="input" size="100" maxlength="250" /></td> 
+                            </tr> 
+                            <tr> 
+                              <td valign="middle" class="list_light"><p>{uploadfile_category}</p></td> 
+                              <td valign="middle" class="list_light">
+                                <select name="dl_cat" class="input"> 
+                                  {input_cat_link} 
+                                </select></td> 
+                            </tr> 
+                            <tr> 
+                              <td colspan="2" valign="top" class="list_dark"> <p>{uploadfile_description}</p> 
+                                <div id="bbeditor" style="text-align:left; width:90%;">	
+                                <table width="100%" border="0" cellpadding="5" cellspacing="0"> 
+                                  <tr> 
+                                    <td align="left" valign="middle">
+                                      <div id="toolbar"><img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'b','')"  src="{GRAFURL}/editor_bold.gif" alt="{comment_bold}" title="{comment_bold}" width="21" height="20" border="0" align="middle" /> 
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'i','')"  src="{GRAFURL}/editor_italic.gif" alt="{comment_italic}" title="{comment_italic}" width="21" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'u','')"  src="{GRAFURL}/editor_underline.gif" alt="{comment_underline}" title="{comment_underline}" width="21" height="20" border="0" align="middle" />
+                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="namedlinkh(alp,'email')"  src="{GRAFURL}/editor_email.gif" alt="{comment_email}" title="{comment_email}" width="21" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="namedlinkh(alp,'url')"  src="{GRAFURL}/editor_createlink.gif" alt="{comment_url}" title="{comment_url}" width="21" height="20" border="0" align="middle" />
+                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'code','')"  src="{GRAFURL}/editor_code.gif" alt="{comment_code}" title="{comment_code}" width="21" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'quote','')"  src="{GRAFURL}/editor_quote.gif" alt="{comment_quote}" title="{comment_quote}" width="21" height="20" border="0" align="middle" />
+                                      <img src="{GRAFURL}/editor_separator.gif" alt="" width="6" height="20" border="0" align="middle" />
+                                      <img class="button"  onmouseover="mouseover(this);" onmouseout="mouseout(this);" onmousedown="mousedown(this);" onmouseup="mouseup(this);" onClick="bbcodeh(alp,'center','')"  src="{GRAFURL}/editor_justifycenter.gif" alt="{comment_center}" title="{comment_center}" width="21" height="20" border="0" align="middle" />
+                                      </div>
+                                    </td> 
+                                  </tr> 
+                                  <tr> 
+                                    <td><textarea class="message_area" name="comment_message" cols="" rows="10" wrap="virtual" style="width:99%; height:160px; background-color: #FFFFFF; "></textarea></td> 
+                                  </tr> 
+                                </table></div></td> 
+                            </tr> 
+                            <tr> 
+                              <td colspan="2" valign="top" class="list_headline">{uploadfile_file_and_previewimage}</td> 
+                            </tr> 
+                            <tr> 
+                              <td valign="top" class="list_light"> 
+                                <p>{uploadfile_file}</p>                                
+                              </td> 
+                              <td valign="top" class="list_light"><fieldset>
+                              <legend>{uploadfile_file_upload}</legend>
+                              <label>{uploadfile_max_filesize}<br />
+                              <br />{uploadfile_choose_file}</label>
+                              <input name="upl_file" type="file" class="input" />
+                              </fieldset>
+                                <p>{uploadfile_alternative}</p>
+                                <fieldset>
+                                <legend>{uploadfile_link_file}</legend>
+                                <label>{uploadfile_please_note_to_use_compl_url}<br />
+                                <br />
+                                {uploadfile_link}</label>
+                                <input name="upl_file2" type="text" class="input" />
+                                &nbsp;&nbsp;
+                                <label>{uploadfile_file_size}<input name="filesize" type="text" class="input" />{uploadfile_bytes}</label>
+                                </fieldset>
+                              <br /></td>
+                            </tr> 
+                            <tr> 
+                              <td valign="top" class="list_dark"><p>{uploadfile_previewimage}</p></td> 
+                              <td valign="middle" class="list_dark"><label>{uploadfile_choose_image}</label> 
+                                <input name="upl_thumbnail" type="file" class="input" /></td> 
+                            </tr> 
+                          </table></td> 
+                      </tr> 
+                    </table> 
+                    <input name="Submit" type="submit" class="input" value="  {uploadfile_btn_register_file}  " /> 
+                    &nbsp;&nbsp;                    
+                    <input name="Reset" type="reset" class="input" value="  {uploadfile_btn_reset}  " /> 
+                  </form></td> 
+              </tr> 
+            </table></td> 
+        </tr> 
+      </table> 
+      <br />
+{footer} 

@@ -1,0 +1,35 @@
+                              <IF NAME="no_existing_comment">
+                              <tr>
+                                  <td colspan="2" class="{postcolor}"><div align="center">{comment_loop_no_comment_available}</div></td>
+                              </tr>
+                              </IF NAME="no_existing_comment">
+                              <IF NAME="existing_comment">
+                                <LOOP NAME="comment_loop">
+                                <tr> 
+                                    <td valign="top" class="{postcolor}"><p><span class="entry_headline_big">{author}</span>{gender}<br /> 
+                                            <span class="entry_headline_small">{gruppe}</span>{com_avat}</p> 
+                                        <p class="entry_headline_small">{comment_loop_registered_since} {dabei}<br /> 
+                                            {comment_loop_location} {herkunft}<br /> 
+                                            {comment_loop_postings} {count_post}</p></td> 
+                                    <td valign="top" class="{postcolor}"><table width="100%"  border="0" cellspacing="4" cellpadding="4"> 
+                                            <tr> 
+                                                <td class="entry_content">{picon} <strong>{headline}</strong> </td> 
+                                            </tr> 
+                                            <tr> 
+                                                <td class="entry_content">
+                                                {current_comment}
+                                                </td> 
+                                            </tr> 
+                                        </table></td> 
+                                </tr> 
+                                <tr> 
+                                    <td class="{postcolor}"><div align="center" class="entry_headline_small"><img src="{GRAFURL}/img_post.gif" alt="{posted_date}" width="14" height="10" align="middle" />{posted_date} </div></td> 
+                                    <td class="{postcolor}"><table width="100%"  border="0" cellspacing="0" cellpadding="0"> 
+                                            <tr> 
+                                                <td width="100%">{mod}&nbsp;&nbsp;{userhp}&nbsp;&nbsp;{usermail}&nbsp;&nbsp;{profile}<span class="entry_content"></span></td> 
+                                                <td width="14"><div align="right"><span class="entry_content"><a href="javascript:self.scrollTo(0,0);"><img src="{GRAFURL}/img_arrow_top.gif" alt="" width="14" height="14" border="0" align="middle" /></a></span></div></td> 
+                                            </tr> 
+                                        </table></td> 
+                                </tr> 
+                                </LOOP NAME="comment_loop">                               
+                              </IF NAME="existing_comment">                                
