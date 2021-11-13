@@ -1,224 +1,274 @@
-# jQuery File Upload
+# ng-flow [![Build Status](https://travis-ci.org/flowjs/ng-flow.svg)](https://travis-ci.org/flowjs/ng-flow) [![Test Coverage](https://codeclimate.com/github/flowjs/ng-flow/badges/coverage.svg)](https://codeclimate.com/github/flowjs/ng-flow/coverage)
 
-## Contents
+[![Saucelabs Test Status](https://saucelabs.com/browser-matrix/ng-flow.svg)](https://saucelabs.com/u/ng-flow)
 
-- [Description](#description)
-- [Demo](#demo)
-- [Features](#features)
-- [Security](#security)
-- [Setup](#setup)
-- [Requirements](#requirements)
-  - [Mandatory requirements](#mandatory-requirements)
-  - [Optional requirements](#optional-requirements)
-  - [Cross-domain requirements](#cross-domain-requirements)
-- [Browsers](#browsers)
-  - [Desktop browsers](#desktop-browsers)
-  - [Mobile browsers](#mobile-browsers)
-  - [Extended browser support information](#extended-browser-support-information)
-- [Testing](#testing)
-- [Support](#support)
-- [License](#license)
+View angular2+ repo at https://github.com/flowjs/ngx-flow
 
-## Description
+ng-flow is a [Flow.js](https://github.com/flowjs/flow.js) extensions for angular.js framework, no 3rd party JS dependencies required!
 
-> File Upload widget with multiple file selection, drag&drop support, progress
-> bars, validation and preview images, audio and video for jQuery.  
-> Supports cross-domain, chunked and resumable file uploads and client-side
-> image resizing.  
-> Works with any server-side platform (PHP, Python, Ruby on Rails, Java,
-> Node.js, Go etc.) that supports standard HTML form file uploads.
+Demo: http://flowjs.github.io/ng-flow/
 
-## Demo
+How can I install it?
+============
+1) Get the library:
 
-[Demo File Upload](https://blueimp.github.io/jQuery-File-Upload/)
+**Direct Download**
+Download a latest build from https://github.com/flowjs/ng-flow/releases
+it contains development and minified production files in `dist/` directory,
+they are also concatenated with core flow.js library.
 
-## Features
+**Using NPM**
 
-- **Multiple file upload:**  
-  Allows to select multiple files at once and upload them simultaneously.
-- **Drag & Drop support:**  
-  Allows to upload files by dragging them from your desktop or file manager and
-  dropping them on your browser window.
-- **Upload progress bar:**  
-  Shows a progress bar indicating the upload progress for individual files and
-  for all uploads combined.
-- **Cancelable uploads:**  
-  Individual file uploads can be canceled to stop the upload progress.
-- **Resumable uploads:**  
-  Aborted uploads can be resumed with browsers supporting the Blob API.
-- **Chunked uploads:**  
-  Large files can be uploaded in smaller chunks with browsers supporting the
-  Blob API.
-- **Client-side image resizing:**  
-  Images can be automatically resized on client-side with browsers supporting
-  the required JS APIs.
-- **Preview images, audio and video:**  
-  A preview of image, audio and video files can be displayed before uploading
-  with browsers supporting the required APIs.
-- **No browser plugins (e.g. Adobe Flash) required:**  
-  The implementation is based on open standards like HTML5 and JavaScript and
-  requires no additional browser plugins.
-- **Graceful fallback for legacy browsers:**  
-  Uploads files via XMLHttpRequests if supported and uses iframes as fallback
-  for legacy browsers.
-- **HTML file upload form fallback:**  
-  Allows progressive enhancement by using a standard HTML file upload form as
-  widget element.
-- **Cross-site file uploads:**  
-  Supports uploading files to a different domain with cross-site XMLHttpRequests
-  or iframe redirects.
-- **Multiple plugin instances:**  
-  Allows to use multiple plugin instances on the same webpage.
-- **Customizable and extensible:**  
-  Provides an API to set individual options and define callback methods for
-  various upload events.
-- **Multipart and file contents stream uploads:**  
-  Files can be uploaded as standard "multipart/form-data" or file contents
-  stream (HTTP PUT file upload).
-- **Compatible with any server-side application platform:**  
-  Works with any server-side platform (PHP, Python, Ruby on Rails, Java,
-  Node.js, Go etc.) that supports standard HTML form file uploads.
+        npm install @flowjs/ng-flow --save
 
-## Security
+**Using Bower**
+        
+        bower install ng-flow#~2
+                
+**Git Clone**
+        
+        git clone https://github.com/flowjs/ng-flow
+        
+**Using Yeoman**
 
-⚠️ Please read the [VULNERABILITIES](VULNERABILITIES.md) document for a list of
-fixed vulnerabilities
+        bower install "ng-flow#~2" --save
+        grunt bower-install
+                
+2) Add the module to your app as a dependency:
 
-Please also read the [SECURITY](SECURITY.md) document for instructions on how to
-securely configure your Web server for file uploads.
-
-## Setup
-
-jQuery File Upload can be installed via [NPM](https://www.npmjs.com/):
-
-```sh
-npm install blueimp-file-upload
-```
-
-This allows you to include [jquery.fileupload.js](js/jquery.fileupload.js) and
-its extensions via `node_modules`, e.g:
-
+        angular.module('app', ['flow'])
+        
+3) Include the files in your project
 ```html
-<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<!-- concatenated flow.js + ng-flow libraries -->
+<script src="ng-flow/dist/ng-flow-standalone.min.js"></script>
+<!-- or include the files separately -->
+<script src="flow.js/dist/flow.min.js"></script>
+<script src="ng-flow/dist/ng-flow.min.js"></script>
 ```
 
-The widget can then be initialized on a file upload form the following way:
+How can I use it?
+============
 
-```js
-$('#fileupload').fileupload();
-```
+First of all wrap places there you are going to use Flow.js
+````html
+<div flow-init>
+    ... other flow directives goes here ...
+</div>
+````
 
-For further information, please refer to the following guides:
+This directive is going to add $flow variable to current scope.
+Also directive can be nested, because `$flow` variable is going to be overridden.
+`$flow` is instance of [Flow](https://github.com/flowjs/flow.js#flow).
 
-- [Main documentation page](https://github.com/blueimp/jQuery-File-Upload/wiki)
-- [List of all available Options](https://github.com/blueimp/jQuery-File-Upload/wiki/Options)
-- [The plugin API](https://github.com/blueimp/jQuery-File-Upload/wiki/API)
-- [How to setup the plugin on your website](https://github.com/blueimp/jQuery-File-Upload/wiki/Setup)
-- [How to use only the basic plugin.](https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin)
 
-## Requirements
+Secondly you need to assign some upload buttons:
+````html
+<input type="file" flow-btn />
+<input type="file" flow-btn flow-directory />
+  Input OR Other element as upload button
+<span flow-btn>Upload File</span>
+````
 
-### Mandatory requirements
+First button is for normal uploads and second is for directory uploads.
+Note: avoid using `<a>` and `<button>` tags as file upload buttons, use `<span>` instead.
 
-- [jQuery](https://jquery.com/) v1.7+
-- [jQuery UI widget factory](https://api.jqueryui.com/jQuery.widget/) v1.9+
-  (included): Required for the basic File Upload plugin, but very lightweight
-  without any other dependencies from the jQuery UI suite.
-- [jQuery Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/jquery.iframe-transport.js)
-  (included): Required for
-  [browsers without XHR file upload support](https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support).
 
-### Optional requirements
+Now you need to display uploaded files, all you need to do is to loop files array.
+Files array is attached to flow object named `$flow`.
+````html
+<tr ng-repeat="file in $flow.files">
+    <td>{{$index+1}}</td>
+    <td>{{file.name}}</td>
+</tr>
+````
 
-- [JavaScript Templates engine](https://github.com/blueimp/JavaScript-Templates)
-  v3+: Used to render the selected and uploaded files.
-- [JavaScript Load Image library](https://github.com/blueimp/JavaScript-Load-Image)
-  v2+: Required for the image previews and resizing functionality.
-- [JavaScript Canvas to Blob polyfill](https://github.com/blueimp/JavaScript-Canvas-to-Blob)
-  v3+:Required for the resizing functionality.
-- [blueimp Gallery](https://github.com/blueimp/Gallery) v2+: Used to display the
-  uploaded images in a lightbox.
-- [Bootstrap](https://getbootstrap.com/) v3+: Used for the demo design.
-- [Glyphicons](https://glyphicons.com/) Icon set used by Bootstrap.
+file is instance of [FlowFile](https://github.com/flowjs/flow.js#flowfile).
 
-### Cross-domain requirements
 
-[Cross-domain File Uploads](https://github.com/blueimp/jQuery-File-Upload/wiki/Cross-domain-uploads)
-using the
-[Iframe Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/jquery.iframe-transport.js)
-require a redirect back to the origin server to retrieve the upload results. The
-[example implementation](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/main.js)
-makes use of
-[result.html](https://github.com/blueimp/jQuery-File-Upload/blob/master/cors/result.html)
-as a static redirect page for the origin server.
+### Quick setup
+````html
+<div flow-init="{target: '/upload'}"
+     flow-files-submitted="$flow.upload()"
+     flow-file-success="$file.msg = $message">
 
-The repository also includes the
-[jQuery XDomainRequest Transport plugin](https://github.com/blueimp/jQuery-File-Upload/blob/master/js/cors/jquery.xdr-transport.js),
-which enables limited cross-domain AJAX requests in Microsoft Internet Explorer
-8 and 9 (IE 10 supports cross-domain XHR requests).  
-The XDomainRequest object allows GET and POST requests only and doesn't support
-file uploads. It is used on the
-[Demo](https://blueimp.github.io/jQuery-File-Upload/) to delete uploaded files
-from the cross-domain demo file upload service.
+  <input type="file" flow-btn/>
+  Input OR Other element as upload button
+  <span class="btn" flow-btn>Upload File</span>
 
-## Browsers
+  <table>
+    <tr ng-repeat="file in $flow.files">
+        <td>{{$index+1}}</td>
+        <td>{{file.name}}</td>
+        <td>{{file.msg}}</td>
+    </tr>
+  </table>
+</div>
+````
 
-### Desktop browsers
+Need more examples?
+============
+Clone this repository and go to "ng-flow/samples/basic/index.html".
+Single image upload "ng-flow/samples/image/index.html".
 
-The File Upload plugin is regularly tested with the latest browser versions and
-supports the following minimal versions:
 
-- Google Chrome
-- Apple Safari 4.0+
-- Mozilla Firefox 3.0+
-- Opera 11.0+
-- Microsoft Internet Explorer 6.0+
+How can I drop files?
+============
 
-### Mobile browsers
+Use `flow-drop` directive:
+````html
+<div class="alert" flow-drop>
+    Drag And Drop your file here
+</div>
+````
+Note: in most cases `flow-drop` must be used together with `flow-prevent-drop` directive on `body`
+element, because it prevents file from being loaded in the browser.
 
-The File Upload plugin has been tested with and supports the following mobile
-browsers:
+### Prevent dropping files on a document
+Use `flow-prevent-drop` directive on `body` element:
+````html
+<body flow-prevent-drop>
 
-- Apple Safari on iOS 6.0+
-- Google Chrome on iOS 6.0+
-- Google Chrome on Android 4.0+
-- Default Browser on Android 2.3+
-- Opera Mobile 12.0+
+</body>
+````
 
-### Extended browser support information
+### How to add some styles while dropping a file?
+Use `flow-drag-enter` directive:
+````html
+<div flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}"
+     ng-style="style">
+</div>
+````
+Note: `flow-drag-leave` attribute can't be used alone, it is a part of `flow-drag-enter` directive.
 
-For a detailed overview of the features supported by each browser version and
-known operating system / browser bugs, please have a look at the
-[Extended browser support information](https://github.com/blueimp/jQuery-File-Upload/wiki/Browser-support).
+### How to dynamically disable drop area?
+````html
+<div class="alert" flow-drop flow-drop-enabled="config.enabled">
+    Drag And Drop your file here
+</div>
+````
+See example at `samples/dataurl/`.
 
-## Testing
 
-The project comes with three sets of tests:
+How can I preview uploaded image?
+============
 
-1. Code linting using [ESLint](https://eslint.org/).
-2. Unit tests using [Mocha](https://mochajs.org/).
-3. End-to-end tests using [blueimp/wdio](https://github.com/blueimp/wdio).
+Use flow-img directive:
+````html
+<img flow-img="$flow.files[0]" />
+````
 
-To run the tests, follow these steps:
+Image will be automatically updated once file is added. No need to start upload.
 
-1. Start [Docker](https://docs.docker.com/).
-2. Install development dependencies:
-   ```sh
-   npm install
-   ```
-3. Run the tests:
-   ```sh
-   npm test
-   ```
 
-## Support
+How can I set options for flow.js?
+============
 
-This project is actively maintained, but there is no official support channel.  
-If you have a question that another developer might help you with, please post
-to
-[Stack Overflow](https://stackoverflow.com/questions/tagged/blueimp+jquery+file-upload)
-and tag your question with `blueimp jquery file upload`.
+Use config:
+````javascript
+var app = angular.module('app', ['flow'])
+.config(['flowFactoryProvider', function (flowFactoryProvider) {
+    flowFactoryProvider.defaults = {
+        target: '/upload',
+        permanentErrors:[404, 500, 501]
+    };
+    // You can also set default events:
+    flowFactoryProvider.on('catchAll', function (event) {
+      ...
+    });
+    // Can be used with different implementations of Flow.js
+    // flowFactoryProvider.factory = fustyFlowFactory;
+}]);
+````
 
-## License
+also can be configured on "flow-init" directive:
+````html
+<div flow-init="{target:'/uploader'}">
 
-Released under the [MIT license](https://opensource.org/licenses/MIT).
+</div>
+````
+
+
+How can I catch events?
+============
+
+Events are listed inside `flow-init` directive:
+````html
+<div flow-init
+        flow-file-success="someHandlerMethod( $file, $message, $flow )"
+        flow-file-progress="someHandlerMethod( $file, $flow )"
+        flow-file-added="someHandlerMethod( $file, $event, $flow )"
+        flow-files-added="someHandlerMethod( $files, $event, $flow )"
+        flow-files-submitted="someHandlerMethod( $files, $event, $flow )"
+        flow-file-retry="someHandlerMethod( $file, $flow )"
+        flow-file-error="someHandlerMethod( $file, $message, $flow )"
+        flow-error="someHandlerMethod( $file, $message, $flow )"
+        flow-complete=" ... "
+        flow-upload-started=" ... "
+        flow-progress=" ... "
+      >
+      <div flow-file-progress=" ... events can be also assigned inside flow-init ... "></div>
+
+</div>
+````
+
+### How can I catch an event in a controller?
+If controller is on the same scope as `flow-init` directive or in a child scope,
+then we can catch events with `$on`. Events are prefixed with `flow::`.
+````javascript
+$scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+  event.preventDefault();//prevent file from uploading
+});
+````
+second argument is always a `flow` instance and then follows event specific arguments.
+
+How can I assign flow to a parent scope?
+============
+
+Use `flow-name` attribute and set it to any variable in the scope.
+````html
+<div flow-init flow-name="obj.flow">
+    ... Flow is set to obj.flow  ...
+    I have uploaded files: #{{obj.flow.files.length}}
+</div>
+````
+````javascript
+$scope.obj = {}; // variable "obj" must be initialized on the scope
+````
+
+How can I initialize flow with an existing flow object ?
+============
+
+Use `flow-object` attribute and set it with the existing flow object on scope.
+````html
+<div flow-init flow-object="existingFlowObject">
+    ... Flow is initialized with existingFlowObject, no new Flow object  is created ...
+    There are already {{ existingFLowObject.files.length }} files uploaded,
+    which is equal to {{ $flow.files.length }}.
+</div>
+````
+
+How can I support older browsers?
+============
+Go to https://github.com/flowjs/fusty-flow.js
+and add to your config:
+````javascript
+var app = angular.module('app', ['flow'])
+.config(['flowFactoryProvider', function (flowFactoryProvider) {
+    flowFactoryProvider.factory = fustyFlowFactory;
+}]);
+````
+
+Contribution
+============
+To ensure consistency throughout the source code, keep these rules in mind as you are working:
+
+* All features or bug fixes must be tested by one or more specs.
+
+* With the exceptions listed below, we follow the rules contained in [Google's JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml):
+
+  * Wrap all code at 100 characters.
+
+  * Instead of complex inheritance hierarchies, we prefer simple objects. We use prototypical
+inheritance only when absolutely necessary.
+
